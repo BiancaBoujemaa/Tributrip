@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tributrip — Voyage qui éveillent les sens</title>
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Google Fonts: Outfit for headings; Quicksand used as a soft sans substitute for Playpen Sans (replace with Playpen Sans files if provided) -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Quicksand:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav fixed">
+  <div class="brand"><img src="../old-site/logo.png" alt="Tributrip" class="logo" style="height:34px;display:block"></div>
+      <!-- Navigation: duplicate in FR/EN for fast DOM toggle -->
+      <ul class="nav-links lang-fr">
+        <li><a href="#hero">Accueil</a></li>
+        <li><a href="#spirit">Esprit</a></li>
+        <li><a href="#experiences">Expériences</a></li>
+        <li><a href="#stories">Récits</a></li>
+        <li><a href="#map">Carte</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <ul class="nav-links lang-en" style="display:none">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#spirit">Spirit</a></li>
+        <li><a href="#experiences">Experiences</a></li>
+        <li><a href="#stories">Local Stories</a></li>
+        <li><a href="#map">Map</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="lang-toggle">
+        <button id="lang-fr" class="active">FR</button>
+        <button id="lang-en">EN</button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+  <section id="hero" class="hero">
+      <!-- Video hero (sourced from selected template traveltime-blue). Poster uses a travel image fallback -->
+      <video class="hero-video" autoplay muted loop playsinline poster="../selected-templates/traveltime-blue/assets/img/travel/destination-1.webp">
+        <source src="../selected-templates/traveltime-blue/assets/img/travel/video-2.mp4" type="video/mp4">
+        <!-- Fallback image if video cannot play -->
+      </video>
+      <div class="hero-inner lang-fr">
+        <h1>Tributrip</h1>
+        <p class="tag">Tributrip, des voyages qui éveillent les sens</p>
+        <a class="btn discover" href="#spirit">Découvrir</a>
+      </div>
+      <div class="hero-inner lang-en" style="display:none">
+        <h1>Tributrip</h1>
+        <p class="tag">Tributrip — journeys that awaken the senses</p>
+        <a class="btn discover" href="#spirit">Discover</a>
+      </div>
+    </section>
+
+    <!-- contact-sections removed here and moved under the Contact section for clearer structure -->
+
+    <section id="spirit" class="section spirit">
+      <div class="lang-fr">
+        <h2>Esprit Tributrip</h2>
+        <p>Authenticité · Connexion · Découverte · Sérénité · Curiosité</p>
+        <p class="lead">Nous privilégions le slow travel, les rencontres vraies et les expériences qui respectent le territoire.</p>
+      </div>
+      <div class="lang-en" style="display:none">
+        <h2>Tributrip Spirit</h2>
+        <p>Authenticity · Connection · Discovery · Serenity · Curiosity</p>
+        <p class="lead">We favour slow travel, genuine encounters and experiences that respect the local territory.</p>
+      </div>
+    </section>
+
+    <section id="experiences" class="section experiences">
+      <div class="lang-fr">
+        <h2>Expériences</h2>
+        <div class="grid">
+          <article class="card"> <h3>Tribu Chill</h3> <p>Moments de détente, paysages doux.</p> </article>
+          <article class="card"> <h3>Tribu Immersion</h3> <p>Rencontres locales et ateliers.</p> </article>
+          <article class="card"> <h3>Tribu Yummy</h3> <p>Saveurs et producteurs locaux.</p> </article>
+          <article class="card"> <h3>Tribu Adventure</h3> <p>Balades, découverte active.</p> </article>
+        </div>
+      </div>
+      <div class="lang-en" style="display:none">
+        <h2>Experiences</h2>
+        <div class="grid">
+          <article class="card"> <h3>Tribu Chill</h3> <p>Relaxation, gentle landscapes and renewal.</p> </article>
+          <article class="card"> <h3>Tribu Immersion</h3> <p>Local encounters and hands-on workshops.</p> </article>
+          <article class="card"> <h3>Tribu Yummi</h3> <p>Local flavours and meetings with producers.</p> </article>
+          <article class="card"> <h3>Tribu Adventure</h3> <p>Walks and active discovery.</p> </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="stories" class="section stories">
+      <div class="lang-fr">
+        <h2>Récits locaux</h2>
+        <p>Portraits, récits et petites chroniques de producteurs et voyageurs.</p>
+        <div class="stories-list">
+          <article class="story"> <h4>Portrait : Marie</h4> <p>Productrice d'huile d'olive, récit à paraître.</p> </article>
+          <article class="story"> <h4>Le marché du dimanche</h4> <p>Promenade, rencontres et saveurs.</p> </article>
+        </div>
+      </div>
+      <div class="lang-en" style="display:none">
+        <h2>Local Stories</h2>
+        <p>Portraits, stories and short chronicles of producers and travellers.</p>
+        <div class="stories-list">
+          <article class="story"> <h4>Portrait: Marie</h4> <p>Olive oil producer — story coming soon.</p> </article>
+          <article class="story"> <h4>Sunday Market</h4> <p>Strolls, encounters and flavours.</p> </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Rooms (from Montana template: 'Choose a Better Room') -->
+    <section id="rooms" class="section rooms">
+      <div class="lang-fr">
+        <h2>Chambres à la une</h2>
+        <p>Choisissez une chambre adaptée à votre séjour.</p>
+      </div>
+      <div class="lang-en" style="display:none">
+        <h2>Featured Rooms</h2>
+        <p>Choose a better room for your stay.</p>
+      </div>
+
+      <div class="rooms_here">
+        <div class="single_rooms">
+          <div class="room_thumb">
+            <img src="../selected-templates/montana/img/rooms/1.png" alt="Superior Room">
+            <div class="room_heading d-flex justify-content-between align-items-center">
+              <div class="room_heading_inner">
+                <span>From €250/night</span>
+                <h3>Superior Room</h3>
+              </div>
+              <a href="#contact" class="line-button">book now</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="single_rooms">
+          <div class="room_thumb">
+            <img src="../selected-templates/montana/img/rooms/2.png" alt="Deluxe Room">
+            <div class="room_heading d-flex justify-content-between align-items-center">
+              <div class="room_heading_inner">
+                <span>From €250/night</span>
+                <h3>Deluxe Room</h3>
+              </div>
+              <a href="#contact" class="line-button">book now</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="single_rooms">
+          <div class="room_thumb">
+            <img src="../selected-templates/montana/img/rooms/3.png" alt="Signature Room">
+            <div class="room_heading d-flex justify-content-between align-items-center">
+              <div class="room_heading_inner">
+                <span>From €250/night</span>
+                <h3>Signature Room</h3>
+              </div>
+              <a href="#contact" class="line-button">book now</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="single_rooms">
+          <div class="room_thumb">
+            <img src="../selected-templates/montana/img/rooms/4.png" alt="Couple Room">
+            <div class="room_heading d-flex justify-content-between align-items-center">
+              <div class="room_heading_inner">
+                <span>From €250/night</span>
+                <h3>Couple Room</h3>
+              </div>
+              <a href="#contact" class="line-button">book now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="map" class="section map">
+      <h2>Carte interactive</h2>
+      <p>Carte des hôtes et points d'intérêt. (Prototype: Leaflet + JSON)</p>
+      <div id="map-canvas" style="height:300px;background:#eee;display:flex;align-items:center;justify-content:center;">Carte placeholder</div>
+    </section>
+
+    <section id="contact" class="section contact">
+      <div class="contact-grid lang-fr">
+        <div class="contact-form-card">
+          <h2>Contact</h2>
+          <p>Écrivons votre voyage — réservez une discussion ou envoyez-nous les grandes lignes de votre projet.</p>
+          <form id="contact-form" action="#" method="post" class="contact-form">
+            <label>Prénom<input name="first_name" type="text" required></label>
+            <label>Nom<input name="last_name" type="text" required></label>
+            <label>Email<input name="email" type="email" required></label>
+            <label>Téléphone<input name="phone" type="tel"></label>
+            <label>Votre projet<textarea name="project" rows="4" required></textarea></label>
+            <button class="btn" type="submit">Envoyer ma demande</button>
+          </form>
+        </div>
+
+        <aside class="contact-info-card">
+          <div class="contact-info-inner">
+            <h3 class="section_title_small">Créons ensemble votre voyage</h3>
+            <!-- Stacked contact subsections to match the live site -->
+            <div class="contact-subsection whatsapp">
+              <img src="../old-site/logo.png" alt="whatsapp" class="info-icon">
+              <div class="sub-content">
+                <h4>WhatsApp Direct</h4>
+                <p>Contactez-nous instantanément pour une réponse rapide</p>
+                <a class="btn whatsapp" href="https://wa.me/33600000000" target="_blank">Ouvrir WhatsApp</a>
+              </div>
+            </div>
+
+            <div class="contact-subsection">
+              <img src="../old-site/logo.png" alt="email" class="info-icon">
+              <div class="sub-content">
+                <h4>Email</h4>
+                <p><a href="mailto:contact@tributrip.fr">contact@tributrip.fr</a></p>
+              </div>
+            </div>
+
+            <div class="contact-subsection">
+              <img src="../old-site/logo.png" alt="phone" class="info-icon">
+              <div class="sub-content">
+                <h4>Téléphone</h4>
+                <p><a href="tel:+33562000000">+33 5 62 XX XX XX</a></p>
+              </div>
+            </div>
+
+            <div class="contact-subsection">
+              <img src="../old-site/logo.png" alt="location" class="info-icon">
+              <div class="sub-content">
+                <h4>Notre base</h4>
+                <p>Au cœur du Gers, entre Auch et Condom — nous nous déplaçons partout en Occitanie</p>
+              </div>
+            </div>
+
+            <div class="contact-note">Réponse rapide sous 48 heures. Pour une demande urgente, utilisez WhatsApp.</div>
+          </div>
+        </aside>
+      </div>
+
+      <div class="contact-grid lang-en" style="display:none">
+        <div class="contact-form-card">
+          <h2>Let's create your trip together</h2>
+          <p>Write to us — tell us the outline of your travel project or book a quick chat.</p>
+          <form id="contact-form-en" action="#" method="post" class="contact-form">
+            <label>First name<input name="first_name" type="text" required></label>
+            <label>Last name<input name="last_name" type="text" required></label>
+            <label>Email<input name="email" type="email" required></label>
+            <label>Phone<input name="phone" type="tel"></label>
+            <label>Your travel project<textarea name="project" rows="4" required></textarea></label>
+            <button class="btn" type="submit">Send my request</button>
+          </form>
+        </div>
+
+        <aside class="contact-info-card">
+          <div class="contact-info-inner">
+            <h3 class="section_title_small">Let's create your trip together</h3>
+            <div class="contact-subsection whatsapp">
+              <img src="../old-site/logo.png" alt="whatsapp" class="info-icon">
+              <div class="sub-content">
+                <h4>WhatsApp Direct</h4>
+                <p>Contact us directly for a fast reply</p>
+                <a class="btn whatsapp" href="https://wa.me/33600000000" target="_blank">Open WhatsApp</a>
+              </div>
+            </div>
+
+            <div class="contact-subsection">
+              <img src="../old-site/logo.png" alt="email" class="info-icon">
+              <div class="sub-content">
+                <h4>Email</h4>
+                <p><a href="mailto:contact@tributrip.fr">contact@tributrip.fr</a></p>
+              </div>
+            </div>
+
+            <div class="contact-subsection">
+              <img src="../old-site/logo.png" alt="phone" class="info-icon">
+              <div class="sub-content">
+                <h4>Phone</h4>
+                <p><a href="tel:+33562000000">+33 5 62 XX XX XX</a></p>
+              </div>
+            </div>
+
+            <div class="contact-subsection">
+              <img src="../old-site/logo.png" alt="location" class="info-icon">
+              <div class="sub-content">
+                <h4>Base</h4>
+                <p>At the heart of Gers, between Auch and Condom — we operate across Occitanie</p>
+              </div>
+            </div>
+
+            <div class="contact-note">We usually reply within 48 hours. For urgent requests use WhatsApp.</div>
+          </div>
+        </aside>
+      </div>
+      <!-- Contact quick-info subsections (WhatsApp / Email / Phone / Base) placed under main contact -->
+      <div class="contact-sections">
+        <div class="contact-cards lang-fr">
+          <div class="info-card whatsapp-card">
+            <img src="../old-site/logo.png" alt="whatsapp" class="info-icon">
+            <div>
+              <h4>WhatsApp</h4>
+              <p>Contactez-nous directement pour une réponse instantanée.</p>
+              <p><a class="btn whatsapp" href="https://wa.me/33600000000" target="_blank">Envoyer un message</a></p>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <img src="../old-site/logo.png" alt="email" class="info-icon">
+            <div>
+              <h4>Email</h4>
+              <p><a href="mailto:contact@tributrip.fr">contact@tributrip.fr</a></p>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <img src="../old-site/logo.png" alt="phone" class="info-icon">
+            <div>
+              <h4>Téléphone</h4>
+              <p><a href="tel:+33562000000">+33 5 62 XX XX XX</a></p>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <img src="../old-site/logo.png" alt="location" class="info-icon">
+            <div>
+              <h4>Base</h4>
+              <p>Au cœur du Gers, entre Auch et Condom</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-cards lang-en" style="display:none">
+          <div class="info-card whatsapp-card">
+            <img src="../old-site/logo.png" alt="whatsapp" class="info-icon">
+            <div>
+              <h4>WhatsApp</h4>
+              <p>Contact us directly for a fast reply.</p>
+              <p><a class="btn whatsapp" href="https://wa.me/33600000000" target="_blank">Send a message</a></p>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <img src="../old-site/logo.png" alt="email" class="info-icon">
+            <div>
+              <h4>Email</h4>
+              <p><a href="mailto:contact@tributrip.fr">contact@tributrip.fr</a></p>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <img src="../old-site/logo.png" alt="phone" class="info-icon">
+            <div>
+              <h4>Phone</h4>
+              <p><a href="tel:+33562000000">+33 5 62 XX XX XX</a></p>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <img src="../old-site/logo.png" alt="location" class="info-icon">
+            <div>
+              <h4>Base</h4>
+              <p>At the heart of Gers, between Auch and Condom</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>© Tributrip — Slow discovery &amp; local warmth</p>
+  </footer>
+
+  <script src="js/site.js"></script>
+  <script>
+    // Smooth scroll for nav links
+    // Smooth scroll for nav links
+    document.querySelectorAll('.nav-links a').forEach(link =>
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+      })
+    );
+
+    // Language toggle: call the shared setLanguage function so visibility is handled consistently
+    const frBtn = document.getElementById('lang-fr');
+    const enBtn = document.getElementById('lang-en');
+    if (frBtn) frBtn.addEventListener('click', () => { document.documentElement.lang = 'fr'; setLanguage('fr'); });
+    if (enBtn) enBtn.addEventListener('click', () => { document.documentElement.lang = 'en'; setLanguage('en'); });
+  </script>
+</body>
+</html>

@@ -1,0 +1,129 @@
+:root{
+  --safety-orange:#FF7D17;
+  --prussian-blue:#00294D;
+  --bisque:#FFE6C7;
+  --deep-saffron:#FC9E38;
+  --gingerbread:#4E1D00;
+  --max-width:1100px;
+}
+*{box-sizing:border-box}
+/* Typography and brand fonts */
+body{font-family:'Quicksand', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;margin:0;color:var(--gingerbread);background:var(--bisque);line-height:1.65;-webkit-font-smoothing:antialiased}
+h1,h2,h3,.brand{font-family:'Outfit', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;color:var(--prussian-blue);letter-spacing:0.02em}
+.nav.fixed{position:fixed;top:12px;left:12px;right:12px;background:rgba(255,230,199,0.85);display:flex;align-items:center;justify-content:space-between;padding:12px 20px;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,0.06);z-index:1000;backdrop-filter: blur(4px)}
+.nav .brand{font-weight:700;color:var(--prussian-blue);display:flex;align-items:center;gap:12px}
+.nav .nav-links{list-style:none;display:flex;gap:18px;margin:0;padding:0;align-items:center}
+.nav .nav-links a{color:var(--prussian-blue);text-decoration:none;padding:6px 8px;font-weight:600}
+.nav .nav-links a:hover{color:var(--safety-orange)}
+.lang-toggle button{border:0;background:transparent;padding:6px;margin-left:6px;cursor:pointer}
+.lang-toggle .active{font-weight:700;color:var(--safety-orange)}
+.hero{height:100vh;display:flex;align-items:center;justify-content:center;position:relative;color:var(--bisque);overflow:hidden;border-bottom:1px solid rgba(0,0,0,0.04)}
+.hero .hero-inner{text-align:center;max-width:980px;padding:28px 20px;position:relative;z-index:3}
+.hero h1{font-size:3.6rem;margin:0 0 12px;color:var(--bisque);font-weight:700}
+.hero .tag{font-size:1.2rem;color:rgba(255,230,199,0.95);margin-bottom:18px}
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;filter:contrast(0.95) saturate(0.95)}
+.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,0.28), rgba(0,0,0,0.14));z-index:2}
+.btn{display:inline-block;background:var(--safety-orange);color:#fff;padding:12px 18px;border-radius:8px;text-decoration:none;font-weight:700;box-shadow:0 8px 18px rgba(255,125,23,0.14)}
+.btn.whatsapp{background:transparent;color:var(--prussian-blue);border:2px solid rgba(0,0,0,0.06);box-shadow:none}
+.section{padding:80px 20px;max-width:var(--max-width);margin:0 auto}
+.section h2{color:var(--prussian-blue);margin-top:0;font-size:1.8rem}
+.experiences .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px}
+.card{background:#fff;padding:20px;border-radius:12px;box-shadow:0 10px 30px rgba(2,18,36,0.06);border:1px solid rgba(0,0,0,0.03)}
+.stories-list{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.contact-form label{display:block;margin-bottom:8px}
+.contact-form input,.contact-form textarea{width:100%;padding:8px;border:1px solid #ccc;border-radius:4px}
+.site-footer{text-align:center;padding:36px 10px;background:transparent;color:var(--prussian-blue);font-size:0.95rem}
+@media(max-width:900px){.nav.fixed{left:10px;right:10px}.nav .nav-links{gap:12px}}
+@media(max-width:700px){.nav .nav-links{display:none}.stories-list{grid-template-columns:1fr}.hero h1{font-size:2.2rem}.hero{height:70vh}}
+/* Language blocks: visibility is controlled by JavaScript (setLanguage)
+  Avoid hard-coded display rules here so JS can show/hide blocks.
+*/
+
+/* Gallery styles */
+.gallery {text-align:center}
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;max-width:1100px;margin:18px auto}
+.gallery-item{display:block;overflow:hidden;border-radius:8px}
+.gallery-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s ease}
+.gallery-item:hover img{transform:scale(1.06)}
+
+/* Lightbox overlay */
+.ltb-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.85);display:flex;align-items:center;justify-content:center;z-index:2000;opacity:0;pointer-events:none;transition:opacity .2s ease}
+.ltb-overlay.show{opacity:1;pointer-events:auto}
+.ltb-overlay img{max-width:92%;max-height:86%;border-radius:6px;box-shadow:0 18px 60px rgba(0,0,0,0.6)}
+.ltb-close{position:absolute;top:22px;right:26px;color:#fff;font-size:28px;cursor:pointer}
+
+/* Rooms (Featured Rooms) styles - adapted from the Montana template
+  Goal: overlay gradient, image scale on hover and CTA slide-up like the original
+*/
+.rooms_here{max-width:1100px;margin:24px auto;overflow:hidden}
+
+/* mirror Montana: two columns (50% width) floated layout */
+.rooms_here .single_rooms{position:relative;width:50%;float:left}
+@media (max-width: 767px){.rooms_here .single_rooms{width:100%;margin-bottom:30px}}
+
+.rooms_here .single_rooms::before{position:absolute;left:0;top:0;width:100%;height:100%;content:"";background:linear-gradient(to bottom, #fff 0%, #000 77%);z-index:1;opacity:.5}
+
+.rooms_here .single_rooms .room_thumb{position:relative;overflow:hidden}
+.rooms_here .single_rooms .room_thumb img{width:100%;display:block;transform:scale(1);transition:transform .5s}
+
+.rooms_here .single_rooms .room_thumb .room_heading{position:absolute;left:0;right:0;bottom:0;padding:60px 60px 47px 60px;z-index:3;color:#fff}
+@media (max-width: 767px){.rooms_here .single_rooms .room_thumb .room_heading{padding:20px}}
+
+.rooms_here .single_rooms .room_thumb .room_heading span{font-size:14px;color:#FFFFFF;margin-bottom:9px;display:block}
+.rooms_here .single_rooms .room_thumb .room_heading h3{font-size:30px;color:#fff;margin:0}
+@media (max-width: 767px){.rooms_here .single_rooms .room_thumb .room_heading h3{font-size:20px}}
+
+.rooms_here .single_rooms .room_thumb .room_heading .line-button{color:#fff;text-transform:capitalize;font-weight:600;transform:translateY(-40px);opacity:0;visibility:hidden}
+.rooms_here .single_rooms .room_thumb .room_heading .line-button:hover{color:var(--safety-orange)}
+
+/* hover behaviors */
+.rooms_here .single_rooms:hover img{transform:scale(1.1)}
+.rooms_here .single_rooms:hover .room_heading .line-button{transform:translateY(0);opacity:1;visibility:visible}
+
+/* small screens adjust */
+@media(max-width:900px){.rooms_here .single_rooms .room_thumb img{height:auto}} 
+
+/* Enhanced contact section styles */
+.contact-grid{display:flex;gap:28px;align-items:flex-start;max-width:var(--max-width);margin:0 auto}
+.contact-form-card{flex:1;background:#fff;padding:28px;border-radius:12px;box-shadow:0 10px 30px rgba(2,18,36,0.06)}
+.contact-form-card h2{margin-top:0;color:var(--prussian-blue)}
+.contact-form-card p{color:#4d4d4d}
+.contact-form label{display:block;margin-bottom:12px}
+.contact-form input,.contact-form textarea{border:1px solid rgba(0,0,0,0.08);padding:12px;border-radius:8px}
+.contact-form button{margin-top:8px}
+
+.contact-info-card{width:320px}
+.contact-info-inner{background:linear-gradient(180deg, rgba(0,41,77,0.02), rgba(0,41,77,0.04));padding:20px;border-radius:12px;height:100%;display:flex;flex-direction:column;gap:12px}
+.contact-head{font-weight:700;color:var(--prussian-blue);margin:0}
+.contact-methods{list-style:none;padding:0;margin:0 0 8px 0;color:#333}
+.contact-methods li{margin:6px 0}
+.contact-methods a{color:var(--prussian-blue);text-decoration:none}
+.contact-note{font-size:0.9rem;color:#666}
+
+.btn.whatsapp{background:var(--bisque);color:var(--prussian-blue);border:2px solid rgba(0,0,0,0.06);padding:10px 14px;border-radius:8px;font-weight:700;text-decoration:none;display:inline-block}
+.btn.whatsapp:hover{background:var(--safety-orange);color:#fff;border-color:var(--safety-orange)}
+
+@media(max-width:900px){.contact-grid{flex-direction:column}.contact-info-card{width:100%}}
+
+/* stacked contact subsections inside the aside */
+.contact-subsection{display:flex;gap:12px;align-items:flex-start;background:#fff;padding:14px;border-radius:10px;margin-bottom:12px;box-shadow:0 8px 20px rgba(2,18,36,0.04)}
+.contact-subsection .info-icon{width:52px;height:52px}
+.contact-subsection .sub-content h4{margin:0;font-size:1rem;color:var(--prussian-blue)}
+.contact-subsection .sub-content p{margin:6px 0 0 0;color:#444}
+.contact-subsection.whatsapp{background:linear-gradient(90deg, rgba(255,125,23,0.06), rgba(0,41,77,0.02));border:1px solid rgba(255,125,23,0.08)}
+.contact-subsection.whatsapp .btn.whatsapp{display:inline-block;margin-top:8px}
+
+@media(max-width:700px){.contact-subsection{flex-direction:row;align-items:center}}
+
+/* contact-sections (small cards) */
+.contact-sections{max-width:var(--max-width);margin:28px auto;padding:0 20px}
+.contact-cards{display:flex;gap:18px;justify-content:space-between}
+.info-card{flex:1;background:#fff;padding:18px;border-radius:10px;display:flex;gap:12px;align-items:flex-start;box-shadow:0 8px 20px rgba(2,18,36,0.04)}
+.info-icon{width:56px;height:56px;object-fit:contain;border-radius:8px}
+.info-card h4{margin:0;font-size:1rem;color:var(--prussian-blue)}
+.info-card p{margin:0;color:#555;font-size:0.95rem}
+.info-card .btn.whatsapp{margin-top:8px}
+.whatsapp-card .info-icon{width:64px;height:64px}
+.whatsapp-card h4{color:var(--prussian-blue);margin-bottom:6px}
+.whatsapp-card p{margin-bottom:8px}
+@media(max-width:700px){.contact-cards{flex-direction:column}.info-card{width:100%}}

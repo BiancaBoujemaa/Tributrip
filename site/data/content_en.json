@@ -1,0 +1,120 @@
+{
+  "hero": {
+    "title": "Journeys that awaken the senses",
+    "subtitle": "Discover France differently",
+    "tagline": "Tributrip — journeys that awaken the senses",
+    "cta": "Discover our experiences",
+    "hero_image": "assets/hero-gers-DYLGqDak.jpg",
+    "hero_kicker": "Slow tourism • Gers • France"
+  },
+  "intro": {
+    "headline": "Discover France differently",
+    "lead": "Each Tributrip experience invites you to slow down, meet people and discover the hidden treasures of our regions with authenticity and warmth."
+  },
+  "experiences": [
+    {
+      "id": "winemakers-gers",
+      "title": "Meet the Winemakers of Gers",
+      "description": "Immerse yourself in the world of passionate winemakers and discover the secrets of the Gascony terroir.",
+      "duration": "3 days",
+      "group_size": "4–8 people",
+      "region": "Gers",
+      "price_from": "From €380"
+    },
+    {
+      "id": "armagnac-walk",
+      "title": "Contemplative Walk in the Armagnac Countryside",
+      "description": "Gentle walks through rolling landscapes, moments of contemplation and renewal.",
+      "duration": "2 days",
+      "group_size": "2–6 people",
+      "region": "Armagnac",
+      "price_from": "From €250"
+    },
+    {
+      "id": "cycling-gascogne",
+      "title": "Cycling Adventure in Gascony",
+      "description": "Explore country lanes by bike, between bastides and authentic villages.",
+      "duration": "4 days",
+      "group_size": "6–12 people",
+      "region": "Gascony",
+      "price_from": "From €450"
+    },
+    {
+      "id": "potter-immersion",
+      "title": "Immersion with a Potter",
+      "description": "Live at the pace of the craftsman, learn techniques and take home your creations.",
+      "duration": "5 days",
+      "group_size": "2–4 people",
+      "region": "Lectoure",
+      "price_from": "From €520"
+    }
+  ],
+  "categories": [
+    {"key":"chill","title":"Chill","desc":"Relaxation, contemplation and renewal in the heart of nature."},
+    {"key":"yummi","title":"Yummi","desc":"Local flavors, gourmet encounters and culinary traditions."},
+    {"key":"adventure","title":"Adventure","desc":"Outdoor activities and active discovery of the region."},
+    {"key":"immersion","title":"Immersion","desc":"Local life, traditional crafts and learning local skills."}
+  ],
+  "artisans": [
+    {
+      "name": "Pierre Dubois",
+      "role": "Passionate winemaker",
+      "place": "Domaine des Coteaux, Condom",
+      "specialty": "Côtes de Gascogne",
+      "quote": "Each bottle tells the story of our terroir. With Tributrip, I share this passion with curious travelers who become friends.",
+      "photo": "assets/artisan-vigneron-CJpyE2Z7.jpg"
+    },
+    {
+      "name": "Marie Lartigau",
+      "role": "Organic farmer",
+      "place": "Ferme du Bonheur, Auch",
+      "specialty": "Organic vegetable farming",
+      "quote": "Our farm is a place of life where each vegetable grows with love. Hosting Tributrip travelers is sharing our art of living.",
+      "photo": "assets/artisan-fermiere-B9SFaPa0.jpg"
+    },
+    {
+      "name": "Jean-Claude Martin",
+      "role": "Artisan potter",
+      "place": "Atelier Terre & Feu, Lectoure",
+      "specialty": "Traditional ceramics",
+      "quote": "The clay of Gers holds secrets I've passed on for 30 years. My hands guided by tradition create unique pieces.",
+      "photo": "assets/artisan-vigneron-CJpyE2Z7.jpg"
+    },
+    {
+      "name": "Sophie Bernadotte",
+      "role": "Beekeeper",
+      "place": "Ruchers d'Armagnac, Eauze",
+      "specialty": "Honey and hive products",
+      "quote": "My bees forage wild flowers of Gascony. Their golden honey carries the sweetness of our landscapes.",
+      "photo": "assets/artisan-fermiere-B9SFaPa0.jpg"
+    }
+  ],
+  "partners_count": 25,
+  "contact": {
+    "headline": "Let's create your trip together",
+    "write_us": "Write to us",
+    "form_fields": ["First name","Last name","Email","Phone","Your travel project"],
+    "submit_text": "Send my request",
+    "whatsapp": {
+      "label": "Direct WhatsApp",
+      "desc": "Contact us instantly for a quick reply"
+    },
+    "email": "contact@tributrip.fr",
+    "phone": "+33 5 62 XX XX XX",
+    "base": "At the heart of Gers, between Auch and Condom"
+  },
+  "newsletter": {
+    "title": "Tributrip Newsletter",
+    "desc": "Receive our travel stories, artisan portraits and secret tips",
+    "cta": "Subscribe"
+  },
+  "footer": {
+    "about": "A slow tourism agency based in Gers, we create authentic experiences that reveal the human and cultural richness of our regions.",
+    "nav": {"home":"Home","experiences":"Experiences","partners":"Partners","journal":"Journal","contact":"Contact"},
+    "legal_links": {
+      "legal_notice": "https://tributrip-urs-voyageurs-gourmands.lovable.app/mentions-legales",
+      "privacy": "https://tributrip-urs-voyageurs-gourmands.lovable.app/confidentialite",
+      "tos": "https://tributrip-urs-voyageurs-gourmands.lovable.app/cgu"
+    }
+  }
+}
