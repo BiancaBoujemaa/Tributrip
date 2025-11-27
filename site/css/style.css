@@ -10,17 +10,46 @@
 /* Typography and brand fonts */
 body{font-family:'Quicksand', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;margin:0;color:var(--gingerbread);background:var(--bisque);line-height:1.65;-webkit-font-smoothing:antialiased}
 h1,h2,h3,.brand{font-family:'Outfit', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;color:var(--prussian-blue);letter-spacing:0.02em}
-.nav.fixed{position:fixed;top:12px;left:12px;right:12px;background:rgba(255,230,199,0.85);display:flex;align-items:center;justify-content:space-between;padding:12px 20px;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,0.06);z-index:1000;backdrop-filter: blur(4px)}
+.nav.fixed{position:fixed;top:12px;left:12px;right:12px;display:flex;align-items:center;justify-content:space-between;padding:12px 20px;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,0.06);z-index:1000;backdrop-filter: blur(4px);background:transparent}
 .nav .brand{font-weight:700;color:var(--prussian-blue);display:flex;align-items:center;gap:12px}
 .nav .nav-links{list-style:none;display:flex;gap:18px;margin:0;padding:0;align-items:center}
 .nav .nav-links a{color:var(--prussian-blue);text-decoration:none;padding:6px 8px;font-weight:600}
 .nav .nav-links a:hover{color:var(--safety-orange)}
 .lang-toggle button{border:0;background:transparent;padding:6px;margin-left:6px;cursor:pointer}
 .lang-toggle .active{font-weight:700;color:var(--safety-orange)}
-.hero{height:100vh;display:flex;align-items:center;justify-content:center;position:relative;color:var(--bisque);overflow:hidden;border-bottom:1px solid rgba(0,0,0,0.04)}
-.hero .hero-inner{text-align:center;max-width:980px;padding:28px 20px;position:relative;z-index:3}
-.hero h1{font-size:3.6rem;margin:0 0 12px;color:var(--bisque);font-weight:700}
-.hero .tag{font-size:1.2rem;color:rgba(255,230,199,0.95);margin-bottom:18px}
+.hero{height:100vh;position:relative;color:var(--bisque);overflow:hidden}
+/* hero-inner becomes an absolute overlay centered over the video */
+.hero .hero-inner{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;max-width:980px;padding:28px 20px;margin:0 auto;z-index:4;color:#fff}
+.hero h1{font-size:3.6rem;margin:0 0 12px;color:#fff;font-weight:700}
+.hero .tag{font-size:1.2rem;color:rgba(255,255,255,0.9);margin-bottom:18px}
+
+/* Hero badge (small pill above headline) */
+.hero-badge{display:inline-block;background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.95);padding:8px 18px;border-radius:26px;font-size:0.95rem;margin-bottom:18px;border:1px solid rgba(255,255,255,0.06)}
+
+/* Headline styling closer to the reference */
+.hero h1{font-size:4.8rem;line-height:0.95;font-weight:800;letter-spacing:-0.02em;margin-bottom:14px;text-transform:none}
+.hero h1 .accent{color:var(--bisque);font-weight:800}
+.hero .lead{max-width:860px;margin:0 auto 22px;color:rgba(255,255,255,0.95);font-size:1.15rem}
+
+/* CTAs in hero */
+.hero-ctas{display:flex;gap:18px;margin-top:12px;margin-bottom:22px;flex-wrap:wrap;justify-content:center}
+.btn.primary{background:var(--safety-orange);color:#fff;padding:14px 28px;border-radius:12px;font-weight:800;box-shadow:0 12px 30px rgba(255,125,23,0.14);text-decoration:none}
+.btn.primary:hover{filter:brightness(.96)}
+.btn.secondary{background:rgba(255,255,255,0.95);color:var(--prussian-blue);padding:12px 24px;border-radius:12px;font-weight:700;text-decoration:none}
+.btn.secondary:hover{background:color-mix(in srgb, white, var(--safety-orange) 6%)}
+
+/* small feature bullets */
+.hero-features{display:flex;gap:28px;list-style:none;padding:0;margin:18px 0 34px;color:rgba(255,255,255,0.95);align-items:center}
+.hero-features li{position:relative;padding-left:0;font-size:0.95rem}
+.hero-features li::before{content:"•";display:inline-block;color:var(--bisque);margin-right:8px}
+
+/* scroll indicator */
+.scroll-indicator{position:absolute;left:50%;transform:translateX(-50%);bottom:28px}
+.scroll-indicator .mouse{width:34px;height:52px;border:2px solid rgba(255,255,255,0.6);border-radius:18px;display:flex;align-items:flex-start;justify-content:center;padding-top:8px}
+.scroll-indicator .mouse span{width:6px;height:6px;background:rgba(255,255,255,0.9);border-radius:50%;display:block;animation:scroll-pulse 1.6s infinite}
+@keyframes scroll-pulse{0%{transform:translateY(0);opacity:1}50%{transform:translateY(8px);opacity:.5}100%{transform:translateY(0);opacity:1}}
+
+@media(max-width:900px){.hero h1{font-size:2.6rem}.hero .lead{font-size:1rem;padding:0 8px}.hero-badge{font-size:0.85rem;padding:6px 14px}.btn.primary{padding:10px 18px}.scroll-indicator{bottom:18px}}
 .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;filter:contrast(0.95) saturate(0.95)}
 .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,0.28), rgba(0,0,0,0.14));z-index:2}
 .btn{display:inline-block;background:var(--safety-orange);color:#fff;padding:12px 18px;border-radius:8px;text-decoration:none;font-weight:700;box-shadow:0 8px 18px rgba(255,125,23,0.14)}
@@ -30,6 +59,24 @@ h1,h2,h3,.brand{font-family:'Outfit', system-ui, -apple-system, 'Segoe UI', Robo
 .experiences .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px}
 .card{background:#fff;padding:20px;border-radius:12px;box-shadow:0 10px 30px rgba(2,18,36,0.06);border:1px solid rgba(0,0,0,0.03)}
 .stories-list{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.partners-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;align-items:stretch;max-width:var(--max-width);margin:18px auto}
+.partner-card{background:#fff;border-radius:12px;box-shadow:0 8px 24px rgba(2,18,36,0.05);overflow:hidden;display:flex;flex-direction:column}
+.partner-media img{width:100%;height:200px;object-fit:cover;display:block}
+.partner-body{padding:16px;display:flex;flex-direction:column;gap:10px}
+.partner-body h4{margin:0;color:var(--prussian-blue);font-size:1.05rem}
+.partner-role{color:#4d4d4d;font-size:0.95rem;margin:0}
+.partner-card blockquote{margin:8px 0 0 0;color:#555;font-style:italic;font-size:0.95rem}
+@media(max-width:1000px){.partners-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:700px){.partners-grid{grid-template-columns:1fr}.partner-media img{height:180px}}
+
+/* Partner card bulge + image zoom effect (match featured-tour-card behavior) */
+.partner-card{transition:transform .28s cubic-bezier(.2,.9,.3,1), box-shadow .28s cubic-bezier(.2,.9,.3,1);will-change:transform;transform-origin:center center}
+.partner-media{overflow:hidden}
+.partner-media img{transform:scale(1);transition:transform .45s ease;transform-origin:center center;will-change:transform}
+.partner-card:hover{transform:translateY(-6px) scale(1.02);box-shadow:0 26px 60px rgba(2,18,36,0.12)}
+.partner-card:hover .partner-media img{transform:scale(1.06)}
+.partner-card:focus-within{transform:translateY(-6px) scale(1.02);box-shadow:0 22px 52px rgba(2,18,36,0.10)}
+.partner-card:active{transform:translateY(-2px) scale(1.015)}
 .contact-form label{display:block;margin-bottom:8px}
 .contact-form input,.contact-form textarea{width:100%;padding:8px;border:1px solid #ccc;border-radius:4px}
 .site-footer{text-align:center;padding:36px 10px;background:transparent;color:var(--prussian-blue);font-size:0.95rem}
@@ -115,6 +162,45 @@ h1,h2,h3,.brand{font-family:'Outfit', system-ui, -apple-system, 'Segoe UI', Robo
 
 @media(max-width:700px){.contact-subsection{flex-direction:row;align-items:center}}
 
+/* Header (traveltime-blue style) */
+.header{position:fixed;inset:12px 12px auto 12px;z-index:1200}
+.header-container{background:rgba(255,255,255,0.04);padding:10px 18px;border-radius:12px;display:flex;align-items:center;gap:18px;justify-content:flex-start}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo img{display:block}
+
+/* header controls (language toggle etc.) placed to the right */
+.header-controls{position:absolute;right:18px;top:10px;display:flex;align-items:center;gap:14px}
+/* Center the nav visually by absolutely positioning it in the header container
+  while keeping the logo at the left and controls (lang toggle) at the right. */
+.navmenu{position:absolute;left:50%;top:50%;transform:translate(-50%, -50%);}
+
+.header-controls .lang-toggle{display:flex;gap:6px;align-items:center}
+.header-controls .lang-toggle button{background:#ffffff;border:1px solid rgba(0,0,0,0.06);color:var(--prussian-blue);padding:6px 10px;border-radius:22px;cursor:pointer;font-weight:600}
+.header-controls .lang-toggle button:hover{filter:brightness(.98)}
+.header-controls .lang-toggle .active{background:var(--safety-orange);color:#fff;border-color:var(--safety-orange)}
+
+/* Scrolled state: switch header to light background and dark links */
+body.scrolled .header-container{background:#ffffff;border-radius:12px;box-shadow:0 8px 28px rgba(2,18,36,0.06)}
+body.scrolled .navmenu a{color:var(--prussian-blue)}
+body.scrolled .navmenu a:hover{color:var(--safety-orange)}
+body.scrolled .header-controls .lang-toggle button{background:#fff;color:var(--prussian-blue);border-color:rgba(0,0,0,0.06)}
+body.scrolled .header-controls .lang-toggle .active{background:var(--safety-orange);color:#fff}
+
+/* Default (over hero) state keeps light/white links */
+body:not(.scrolled) .navmenu a{color:var(--bisque)}
+.navmenu ul{display:flex;gap:18px;list-style:none;margin:0;padding:0;align-items:center}
+.navmenu li{position:relative}
+.navmenu a{color:var(--bisque);text-decoration:none;padding:8px 10px;font-weight:600}
+.navmenu a:hover{color:var(--safety-orange)}
+.mobile-nav-toggle{display:none;cursor:pointer}
+.btn-getstarted{background:var(--safety-orange);color:#fff;padding:8px 18px;border-radius:30px;text-decoration:none;font-weight:700}
+
+@media(max-width:900px){.header{inset:10px 10px auto 10px}.header-container{padding:8px 12px}}
+@media(max-width:800px){.navmenu ul{display:none}.mobile-nav-toggle{display:block}}
+
+/* Mobile nav active state */
+body.mobile-nav-active .navmenu ul{display:flex;flex-direction:column;position:absolute;top:64px;right:12px;background:rgba(255,255,255,0.95);padding:12px;border-radius:8px;box-shadow:0 8px 30px rgba(0,0,0,0.12)}
+body.mobile-nav-active .navmenu a{color:var(--prussian-blue)}
 /* contact-sections (small cards) */
 .contact-sections{max-width:var(--max-width);margin:28px auto;padding:0 20px}
 .contact-cards{display:flex;gap:18px;justify-content:space-between}
@@ -127,3 +213,71 @@ h1,h2,h3,.brand{font-family:'Outfit', system-ui, -apple-system, 'Segoe UI', Robo
 .whatsapp-card h4{color:var(--prussian-blue);margin-bottom:6px}
 .whatsapp-card p{margin-bottom:8px}
 @media(max-width:700px){.contact-cards{flex-direction:column}.info-card{width:100%}}
+
+/* Offers area (adapted from Montana) */
+.offers_area{padding:60px 20px;background:transparent}
+.offers_area .section_title{margin-bottom:36px}
+.offers_area .single_offers{background:linear-gradient(180deg, rgba(255,255,255,0.96), #fff);padding:16px;border-radius:12px;box-shadow:0 10px 30px rgba(2,18,36,0.04);text-align:left}
+.offers_area .about_thumb img{width:100%;height:auto;border-radius:8px;margin-bottom:12px;display:block}
+.offers_area h3{font-size:1.15rem;margin:10px 0 8px;color:var(--prussian-blue)}
+.offers_area ul{list-style:none;padding:0;margin:8px 0 14px;color:#444}
+.offers_area ul li{margin:6px 0}
+.offers_area .book_now{display:inline-block;background:var(--safety-orange);color:#fff;padding:10px 14px;border-radius:8px;text-decoration:none;font-weight:700}
+.offers_area .book_now:hover{filter:brightness(.96)}
+
+@media(max-width:900px){
+  .offers-row .col-xl-4{width:100%;flex:0 0 100%;max-width:100%;margin-bottom:18px}
+}
+
+/* Improved offers layout & hover effects to match Montana */
+.offers-row{display:flex;gap:20px;align-items:stretch;flex-wrap:wrap;max-width:var(--max-width);margin:0 auto}
+.offers-row > .col-xl-4{flex:1 1 calc(33.333% - 20px);max-width:calc(33.333% - 20px);box-sizing:border-box}
+.offers_area .single_offers{display:flex;flex-direction:column;height:100%}
+.offers_area .about_thumb{overflow:hidden;border-radius:10px}
+.offers_area .about_thumb img{display:block;width:100%;height:auto;transform:scale(1);transition:transform .45s ease;transform-origin:center center;will-change:transform}
+.offers_area .single_offers:hover .about_thumb img{transform:scale(1.08)}
+
+/* extra selectors to catch variants (featured-tour-card / about_thumb / direct img hover) */
+.featured-tour-card .tour-image{overflow:hidden;border-radius:10px}
+.featured-tour-card .tour-image img{transform:scale(1);transition:transform .45s ease;transform-origin:center center;will-change:transform}
+.featured-tour-card:hover .tour-image img,
+.offers-row .single_offers:hover img,
+.offers-row .single_offers .about_thumb img:hover{transform:scale(1.06)}
+.offers_area h3{font-size:1.125rem;font-weight:600;color:var(--prussian-blue);margin-top:12px}
+.offers_area ul li{position:relative;padding-left:22px;color:#4D4D4D;line-height:1.6}
+.offers_area ul li::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);width:8px;height:8px;background:#4D4D4D;border-radius:50%}
+.offers_area .book_now{margin-top:auto;align-self:flex-start}
+
+@media(max-width:900px){
+  .offers-row > .col-xl-4{flex:1 1 100%;max-width:100%}
+}
+
+/* Featured Tours / Experiences styling (traveltime-blue inspired) */
+.featured-tour-card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 12px 38px rgba(2,18,36,0.06);display:flex;flex-direction:column;height:100%}
+.featured-tour-card{transition:transform .28s cubic-bezier(.2,.9,.3,1), box-shadow .28s cubic-bezier(.2,.9,.3,1);will-change:transform;transform-origin:center center}
+.featured-tour-card .tour-image{position:relative;overflow:hidden}
+.featured-tour-card .tour-image img{width:100%;height:220px;object-fit:cover;display:block;transition:transform .45s ease}
+.featured-tour-card:hover .tour-image img{transform:scale(1.06)}
+.tour-badge{position:absolute;left:12px;top:12px;background:var(--safety-orange);color:#fff;padding:6px 10px;border-radius:999px;font-weight:700;font-size:0.85rem;box-shadow:0 8px 20px rgba(255,125,23,0.12)}
+.featured-tour-card .tour-content{padding:18px 18px 24px;display:flex;flex-direction:column;gap:12px;flex:1}
+.featured-tour-card h4{margin:0;color:var(--prussian-blue);font-size:1.125rem}
+.featured-tour-card .lead{margin:0;color:#555;font-size:0.95rem}
+.tour-meta{display:flex;gap:12px;align-items:center;color:#6b6b6b;font-weight:600}
+.tour-meta .duration{display:inline-flex;align-items:center;gap:8px}
+.tour-meta .duration i{font-size:0.95rem;color:var(--safety-orange)}
+.tour-meta .price{margin-left:auto;color:var(--prussian-blue);font-weight:800}
+.featured-tour-card .btn.primary{margin-top:8px;padding:10px 16px;border-radius:10px;box-shadow:0 10px 30px rgba(255,125,23,0.12)}
+
+@media(max-width:900px){
+  .featured-tour-card .tour-image img{height:180px}
+}
+
+/* Card 'bulge' / slight zoom-on-hover effect */
+.featured-tour-card:hover{transform:translateY(-6px) scale(1.02);box-shadow:0 26px 60px rgba(2,18,36,0.12)}
+.featured-tour-card:focus-within{transform:translateY(-6px) scale(1.02);box-shadow:0 22px 52px rgba(2,18,36,0.10)}
+.featured-tour-card:active{transform:translateY(-2px) scale(1.015)}
+
+/* Ensure cards do not cause layout overflow in their container when scaled */
+.offers-row{overflow:visible}
+
+

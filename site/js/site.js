@@ -12,6 +12,11 @@ function setLanguage(lang){
 		frBtn.classList.toggle('active', lang === 'fr');
 		enBtn.classList.toggle('active', lang === 'en');
 	}
+
+	// If AOS is present, refresh to re-run animations after DOM visibility changes
+	if(typeof AOS !== 'undefined' && AOS && typeof AOS.refresh === 'function'){
+		AOS.refresh();
+	}
 }
 
 // Initialize default language from document or default to FR
@@ -20,6 +25,30 @@ document.addEventListener('DOMContentLoaded', ()=>{
 	setLanguage(defaultLang);
 	document.getElementById('lang-fr').addEventListener('click', ()=>setLanguage('fr'));
 	document.getElementById('lang-en').addEventListener('click', ()=>setLanguage('en'));
+});
+
+// Initialize AOS (Animate On Scroll) if present and add a small scroll class toggle
+document.addEventListener('DOMContentLoaded', ()=>{
+	if(typeof AOS !== 'undefined' && AOS && typeof AOS.init === 'function'){
+		AOS.init({ duration: 700, easing: 'ease-in-out', once: true, mirror: false });
+	}
+
+	// Add a small body.scrolled class for header effects (mimic Strategy toggleScrolled)
+	function toggleScrolled(){
+		if(window.scrollY > 100) document.body.classList.add('scrolled'); else document.body.classList.remove('scrolled');
+	}
+	window.addEventListener('load', toggleScrolled);
+	document.addEventListener('scroll', toggleScrolled);
+
+	// Mobile nav toggle (simple)
+	const mobileToggle = document.querySelector('.mobile-nav-toggle');
+	if(mobileToggle){
+		mobileToggle.addEventListener('click', ()=>{
+			document.body.classList.toggle('mobile-nav-active');
+			mobileToggle.classList.toggle('bi-list');
+			mobileToggle.classList.toggle('bi-x');
+		});
+	}
 });
 
 // Simple lightbox for gallery items

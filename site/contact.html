@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact — Tributrip</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Quicksand:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav fixed">
+      <div class="brand"><a href="index.html"><img src="../old-site/logo.png" alt="Tributrip" class="logo" style="height:34px;display:block"></a></div>
+      <ul class="nav-links lang-fr">
+        <li><a href="index.html#hero">Accueil</a></li>
+        <li><a href="index.html#spirit">Esprit</a></li>
+        <li><a href="index.html#experiences">Expériences</a></li>
+        <li><a href="index.html#stories">Récits</a></li>
+        <li><a href="index.html#map">Carte</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <ul class="nav-links lang-en" style="display:none">
+        <li><a href="index.html#hero">Home</a></li>
+        <li><a href="index.html#spirit">Spirit</a></li>
+        <li><a href="index.html#experiences">Experiences</a></li>
+        <li><a href="index.html#stories">Local Stories</a></li>
+        <li><a href="index.html#map">Map</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="lang-toggle">
+        <button id="lang-fr" class="active">FR</button>
+        <button id="lang-en">EN</button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="container" style="max-width:var(--max-width);margin:0 auto;padding:40px 20px;">
+        <h1>Créons ensemble votre voyage</h1>
+        <p>Partagez vos envies, vos contraintes et votre calendrier — nous vous proposerons un parcours sur mesure.</p>
+
+        <div class="contact-grid lang-fr">
+          <div class="contact-form-card">
+            <h2>Écrivez-nous</h2>
+            <form id="contact-form-full" action="../selected-templates/montana/contact_process.php" method="post" class="contact-form">
+              <label>Prénom<input name="first_name" type="text" required></label>
+              <label>Nom<input name="last_name" type="text" required></label>
+              <label>Email<input name="email" type="email" required></label>
+              <label>Téléphone<input name="phone" type="tel"></label>
+              <label>Votre projet<textarea name="project" rows="6" required></textarea></label>
+              <button class="btn" type="submit">Envoyer ma demande</button>
+            </form>
+          </div>
+
+          <aside class="contact-info-card">
+            <div class="contact-info-inner">
+              <h3 class="section_title_small">Contact rapide</h3>
+              <div class="contact-subsection whatsapp">
+                <img src="../old-site/logo.png" alt="whatsapp" class="info-icon">
+                <div class="sub-content">
+                  <h4>WhatsApp Direct</h4>
+                  <p>Contactez-nous instantanément pour une réponse rapide</p>
+                  <a class="btn whatsapp" href="https://wa.me/33600000000" target="_blank">Ouvrir WhatsApp</a>
+                </div>
+              </div>
+
+              <div class="contact-subsection">
+                <img src="../old-site/logo.png" alt="email" class="info-icon">
+                <div class="sub-content">
+                  <h4>Email</h4>
+                  <p><a href="mailto:contact@tributrip.fr">contact@tributrip.fr</a></p>
+                </div>
+              </div>
+
+              <div class="contact-subsection">
+                <img src="../old-site/logo.png" alt="phone" class="info-icon">
+                <div class="sub-content">
+                  <h4>Téléphone</h4>
+                  <p><a href="tel:+33562000000">+33 5 62 XX XX XX</a></p>
+                </div>
+              </div>
+
+              <div class="contact-subsection">
+                <img src="../old-site/logo.png" alt="location" class="info-icon">
+                <div class="sub-content">
+                  <h4>Notre base</h4>
+                  <p>Au cœur du Gers, entre Auch et Condom — nous nous déplaçons partout en Occitanie</p>
+                </div>
+              </div>
+
+              <div class="contact-note">Réponse rapide sous 48 heures. Pour une demande urgente, utilisez WhatsApp.</div>
+            </div>
+          </aside>
+        </div>
+
+        <div class="contact-sections lang-fr" style="margin-top:28px">
+          <div class="contact-cards">
+            <div class="info-card">
+              <img src="../old-site/logo.png" alt="newsletter" class="info-icon">
+              <div>
+                <h4>Newsletter Tributrip</h4>
+                <p>Recevez nos récits de voyage, portraits d'artisans et bonnes adresses secrètes</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="contact-grid lang-en" style="display:none;max-width:var(--max-width);margin:0 auto;padding:40px 20px;">
+      <div class="contact-form-card">
+        <h2>Write to us</h2>
+        <form id="contact-form-full-en" action="#" method="post" class="contact-form">
+          <label>First name<input name="first_name" type="text" required></label>
+          <label>Last name<input name="last_name" type="text" required></label>
+          <label>Email<input name="email" type="email" required></label>
+          <label>Phone<input name="phone" type="tel"></label>
+          <label>Your travel project<textarea name="project" rows="6" required></textarea></label>
+          <button class="btn" type="submit">Send my request</button>
+        </form>
+      </div>
+
+      <aside class="contact-info-card">
+        <div class="contact-info-inner">
+          <h3 class="section_title_small">Quick contact</h3>
+          <div class="contact-subsection whatsapp">
+            <img src="../old-site/logo.png" alt="whatsapp" class="info-icon">
+            <div class="sub-content">
+              <h4>WhatsApp Direct</h4>
+              <p>Contact us directly for a fast reply</p>
+              <a class="btn whatsapp" href="https://wa.me/33600000000" target="_blank">Open WhatsApp</a>
+            </div>
+          </div>
+
+          <div class="contact-subsection">
+            <img src="../old-site/logo.png" alt="email" class="info-icon">
+            <div class="sub-content">
+              <h4>Email</h4>
+              <p><a href="mailto:contact@tributrip.fr">contact@tributrip.fr</a></p>
+            </div>
+          </div>
+
+          <div class="contact-subsection">
+            <img src="../old-site/logo.png" alt="phone" class="info-icon">
+            <div class="sub-content">
+              <h4>Phone</h4>
+              <p><a href="tel:+33562000000">+33 5 62 XX XX XX</a></p>
+            </div>
+          </div>
+
+          <div class="contact-subsection">
+            <img src="../old-site/logo.png" alt="location" class="info-icon">
+            <div class="sub-content">
+              <h4>Base</h4>
+              <p>At the heart of Gers, between Auch and Condom — we operate across Occitanie</p>
+            </div>
+          </div>
+
+          <div class="contact-note">We usually reply within 48 hours. For urgent requests use WhatsApp.</div>
+        </div>
+      </aside>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>© Tributrip — Slow discovery &amp; local warmth</p>
+  </footer>
+
+  <script src="js/site.js"></script>
+  <script>
+    // Wire language buttons to setLanguage
+    const frBtn = document.getElementById('lang-fr');
+    const enBtn = document.getElementById('lang-en');
+    if (frBtn) frBtn.addEventListener('click', () => { document.documentElement.lang = 'fr'; setLanguage('fr'); });
+    if (enBtn) enBtn.addEventListener('click', () => { document.documentElement.lang = 'en'; setLanguage('en'); });
+  </script>
+</body>
+</html>

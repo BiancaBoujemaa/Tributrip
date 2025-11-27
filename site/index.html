@@ -5,59 +5,165 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Tributrip — Voyage qui éveillent les sens</title>
   <link rel="stylesheet" href="css/style.css">
+  <!-- AOS (Animate On Scroll) from the Strategy template -->
+  <link rel="stylesheet" href="../selected-templates/strategy/assets/vendor/aos/aos.css">
   <!-- Google Fonts: Outfit for headings; Quicksand used as a soft sans substitute for Playpen Sans (replace with Playpen Sans files if provided) -->
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Quicksand:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header class="site-header">
-    <nav class="nav fixed">
-  <div class="brand"><img src="../old-site/logo.png" alt="Tributrip" class="logo" style="height:34px;display:block"></div>
-      <!-- Navigation: duplicate in FR/EN for fast DOM toggle -->
-      <ul class="nav-links lang-fr">
-        <li><a href="#hero">Accueil</a></li>
-        <li><a href="#spirit">Esprit</a></li>
-        <li><a href="#experiences">Expériences</a></li>
-        <li><a href="#stories">Récits</a></li>
-        <li><a href="#map">Carte</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <ul class="nav-links lang-en" style="display:none">
-        <li><a href="#hero">Home</a></li>
-        <li><a href="#spirit">Spirit</a></li>
-        <li><a href="#experiences">Experiences</a></li>
-        <li><a href="#stories">Local Stories</a></li>
-        <li><a href="#map">Map</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <div class="lang-toggle">
-        <button id="lang-fr" class="active">FR</button>
-        <button id="lang-en">EN</button>
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="header-container position-relative d-flex align-items-center justify-content-between">
+
+      <a href="#hero" class="logo d-flex align-items-center">
+        <img src="../old-site/logo.png" alt="Tributrip" style="height:36px;display:block">
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <!-- bilingual nav lists -->
+        <ul class="lang-fr">
+          <li><a href="#hero">Accueil</a></li>
+          <li><a href="#spirit">Esprit</a></li>
+          <li><a href="#stories">Récits</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <ul class="lang-en" style="display:none">
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#spirit">Spirit</a></li>
+          <li><a href="#stories">Local Stories</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list" aria-hidden="true"></i>
+      </nav>
+
+      <div class="header-controls">
+        <div class="lang-toggle">
+          <button id="lang-fr" class="active">FR</button>
+          <button id="lang-en">EN</button>
+        </div>
       </div>
-    </nav>
+
+    </div>
   </header>
 
   <main>
-  <section id="hero" class="hero">
+  <section id="hero" class="hero" data-aos="zoom-in" data-aos-duration="900">
       <!-- Video hero (sourced from selected template traveltime-blue). Poster uses a travel image fallback -->
       <video class="hero-video" autoplay muted loop playsinline poster="../selected-templates/traveltime-blue/assets/img/travel/destination-1.webp">
         <source src="../selected-templates/traveltime-blue/assets/img/travel/video-2.mp4" type="video/mp4">
         <!-- Fallback image if video cannot play -->
       </video>
       <div class="hero-inner lang-fr">
-        <h1>Tributrip</h1>
-        <p class="tag">Tributrip, des voyages qui éveillent les sens</p>
-        <a class="btn discover" href="#spirit">Découvrir</a>
+        <div class="hero-badge">Slow tourisme • Gers • France</div>
+        <h1>Des voyages qui<br><span class="accent">éveillent les sens</span></h1>
+        <p class="lead">Découvrez la France autrement avec Tributrip. Rencontres authentiques, saveurs locales et territoires préservés du Gers et d'Occitanie.</p>
+        <div class="hero-ctas">
+          <a class="btn primary" href="#rooms">Découvrir nos expériences</a>
+          <a class="btn secondary" href="#contact">Nos partenaires locaux</a>
+        </div>
+        <ul class="hero-features">
+          <li>100% authentique</li>
+          <li>Rencontres humaines</li>
+          <li>Territoires préservés</li>
+        </ul>
+        <div class="scroll-indicator" aria-hidden="true"><span class="mouse"><span></span></span></div>
       </div>
+
       <div class="hero-inner lang-en" style="display:none">
-        <h1>Tributrip</h1>
-        <p class="tag">Tributrip — journeys that awaken the senses</p>
-        <a class="btn discover" href="#spirit">Discover</a>
+        <div class="hero-badge">Slow tourism • Gers • France</div>
+        <h1>Journeys that<br><span class="accent">awaken the senses</span></h1>
+        <p class="lead">Discover France differently with Tributrip. Authentic encounters, local flavours and well-preserved territories across Gers and Occitanie.</p>
+        <div class="hero-ctas">
+          <a class="btn primary" href="#rooms">Discover our experiences</a>
+          <a class="btn secondary" href="#contact">Our local partners</a>
+        </div>
+        <ul class="hero-features">
+          <li>100% authentic</li>
+          <li>Human encounters</li>
+          <li>Preserved territories</li>
+        </ul>
+        <div class="scroll-indicator" aria-hidden="true"><span class="mouse"><span></span></span></div>
       </div>
     </section>
 
+    <!-- Ongoing Offers (from Montana template) -->
+  <section id="offers" class="section offers_area" data-aos="fade-up" data-aos-duration="700" data-aos-delay="120">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-12">
+          <div class="section_title text-center mb-60">
+            <div class="lang-fr">
+              <span>Nos expériences</span>
+              <h3>Découvrez nos expériences</h3>
+            </div>
+            <div class="lang-en" style="display:none">
+              <span>Our experiences</span>
+              <h3>Discover our experiences</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row offers-row">
+        <div class="col-xl-4 col-md-4">
+          <div class="single_offers featured-tour-card">
+            <div class="tour-image about_thumb">
+              <img src="https://tributrip-urs-voyageurs-gourmands.lovable.app/assets/seasons-landscape-BpeLvu-0.jpg" alt="Rencontre avec les Vignerons du Gers">
+              <div class="tour-badge"><span class="lang-fr">Yummi</span><span class="lang-en" style="display:none">Yummi</span></div>
+            </div>
+            <div class="tour-content">
+              <h4><span class="lang-fr">Rencontre avec les vignerons du Gers</span><span class="lang-en" style="display:none">Meet the winemakers of Gers</span></h4>
+              <p class="lead"><span class="lang-fr">Immergez-vous dans l'univers des vignerons passionnés et découvrez les secrets du terroir gascon.</span><span class="lang-en" style="display:none">Immerse yourself with passionate winemakers and discover the secrets of the Gascon terroir.</span></p>
+              <div class="tour-meta">
+                <span class="duration"><i class="bi bi-clock"></i> <span class="lang-fr">3 jours</span><span class="lang-en" style="display:none">3 days</span></span>
+                <span class="price"><span class="lang-fr">À partir de 380€</span><span class="lang-en" style="display:none">From €380</span></span>
+              </div>
+              <a href="#contact" class="btn primary"><span class="lang-fr">Découvrir</span><span class="lang-en" style="display:none">Discover</span></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xl-4 col-md-4">
+          <div class="single_offers featured-tour-card">
+            <div class="tour-image about_thumb">
+              <img src="https://tributrip-urs-voyageurs-gourmands.lovable.app/assets/seasons-landscape-BpeLvu-0.jpg" alt="Balade contemplative en Pays d'Armagnac">
+              <div class="tour-badge"><span class="lang-fr">Chill</span><span class="lang-en" style="display:none">Chill</span></div>
+            </div>
+            <div class="tour-content">
+              <h4><span class="lang-fr">Balade contemplative en Pays d'Armagnac</span><span class="lang-en" style="display:none">Contemplative walk in Armagnac country</span></h4>
+              <p class="lead"><span class="lang-fr">Promenades douces à travers les paysages vallonnés, moments de contemplation et de ressourcement.</span><span class="lang-en" style="display:none">Gentle walks through rolling landscapes — moments of contemplation and renewal.</span></p>
+              <div class="tour-meta">
+                <span class="duration"><i class="bi bi-clock"></i> <span class="lang-fr">2 jours</span><span class="lang-en" style="display:none">2 days</span></span>
+                <span class="price"><span class="lang-fr">À partir de 250€</span><span class="lang-en" style="display:none">From €250</span></span>
+              </div>
+              <a href="#contact" class="btn primary"><span class="lang-fr">Découvrir</span><span class="lang-en" style="display:none">Discover</span></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xl-4 col-md-4">
+          <div class="single_offers featured-tour-card">
+            <div class="tour-image about_thumb">
+              <img src="https://tributrip-urs-voyageurs-gourmands.lovable.app/assets/seasons-landscape-BpeLvu-0.jpg" alt="Aventure cycliste en Gascogne">
+              <div class="tour-badge"><span class="lang-fr">Adventure</span><span class="lang-en" style="display:none">Adventure</span></div>
+            </div>
+            <div class="tour-content">
+              <h4><span class="lang-fr">Aventure cycliste en Gascogne</span><span class="lang-en" style="display:none">Cycling adventure in Gascogne</span></h4>
+              <p class="lead"><span class="lang-fr">Parcourez les chemins de campagne à vélo, entre bastides et villages authentiques.</span><span class="lang-en" style="display:none">Ride country lanes by bike, between bastides and authentic villages.</span></p>
+              <div class="tour-meta">
+                <span class="duration"><i class="bi bi-clock"></i> <span class="lang-fr">4 jours</span><span class="lang-en" style="display:none">4 days</span></span>
+                <span class="price"><span class="lang-fr">À partir de 450€</span><span class="lang-en" style="display:none">From €450</span></span>
+              </div>
+              <a href="#contact" class="btn primary"><span class="lang-fr">Découvrir</span><span class="lang-en" style="display:none">Discover</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
     <!-- contact-sections removed here and moved under the Contact section for clearer structure -->
 
-    <section id="spirit" class="section spirit">
+  <section id="spirit" class="section spirit" data-aos="fade-up" data-aos-duration="700">
       <div class="lang-fr">
         <h2>Esprit Tributrip</h2>
         <p>Authenticité · Connexion · Découverte · Sérénité · Curiosité</p>
@@ -70,55 +176,103 @@
       </div>
     </section>
 
-    <section id="experiences" class="section experiences">
-      <div class="lang-fr">
-        <h2>Expériences</h2>
-        <div class="grid">
-          <article class="card"> <h3>Tribu Chill</h3> <p>Moments de détente, paysages doux.</p> </article>
-          <article class="card"> <h3>Tribu Immersion</h3> <p>Rencontres locales et ateliers.</p> </article>
-          <article class="card"> <h3>Tribu Yummy</h3> <p>Saveurs et producteurs locaux.</p> </article>
-          <article class="card"> <h3>Tribu Adventure</h3> <p>Balades, découverte active.</p> </article>
-        </div>
-      </div>
-      <div class="lang-en" style="display:none">
-        <h2>Experiences</h2>
-        <div class="grid">
-          <article class="card"> <h3>Tribu Chill</h3> <p>Relaxation, gentle landscapes and renewal.</p> </article>
-          <article class="card"> <h3>Tribu Immersion</h3> <p>Local encounters and hands-on workshops.</p> </article>
-          <article class="card"> <h3>Tribu Yummi</h3> <p>Local flavours and meetings with producers.</p> </article>
-          <article class="card"> <h3>Tribu Adventure</h3> <p>Walks and active discovery.</p> </article>
-        </div>
-      </div>
-    </section>
+    <!-- Experiences section removed (content moved into Featured Experiences cards above) -->
 
-    <section id="stories" class="section stories">
+  <section id="stories" class="section stories partners" data-aos="fade-up" data-aos-duration="700" data-aos-delay="120">
       <div class="lang-fr">
-        <h2>Récits locaux</h2>
-        <p>Portraits, récits et petites chroniques de producteurs et voyageurs.</p>
-        <div class="stories-list">
-          <article class="story"> <h4>Portrait : Marie</h4> <p>Productrice d'huile d'olive, récit à paraître.</p> </article>
-          <article class="story"> <h4>Le marché du dimanche</h4> <p>Promenade, rencontres et saveurs.</p> </article>
+        <h2>Nos partenaires locaux</h2>
+        <p>Rencontrez les hommes et femmes qui partagent leur savoir-faire et accueillent nos voyageurs.</p>
+        <div class="partners-grid">
+          <article class="partner-card">
+            <div class="partner-media"><img src="https://tributrip-urs-voyageurs-gourmands.lovable.app/assets/artisan-vigneron-CJpyE2Z7.jpg" alt="Pierre Dubois"></div>
+            <div class="partner-body">
+              <h4>Pierre Dubois</h4>
+              <p class="partner-role">Vigneron passionné — Domaine des Coteaux, Condom</p>
+              <blockquote>« Chaque bouteille raconte l'histoire de notre terroir. Avec Tributrip, je partage cette passion avec des voyageurs curieux qui deviennent des amis. »</blockquote>
+            </div>
+          </article>
+
+          <article class="partner-card">
+            <div class="partner-media"><img src="https://tributrip-urs-voyageurs-gourmands.lovable.app/assets/artisan-fermiere-B9SFaPa0.jpg" alt="Marie Lartigau"></div>
+            <div class="partner-body">
+              <h4>Marie Lartigau</h4>
+              <p class="partner-role">Fermière bio — Ferme du Bonheur, Auch</p>
+              <blockquote>« Notre ferme est un lieu de vie où chaque légume pousse avec amour. Recevoir les voyageurs Tributrip, c'est partager notre art de vivre. »</blockquote>
+            </div>
+          </article>
+
+          <article class="partner-card">
+            <div class="partner-media"><img src="https://tributrip-urs-voyageurs-gourmands.lovable.app/assets/artisan-vigneron-CJpyE2Z7.jpg" alt="Jean-Claude Martin"></div>
+            <div class="partner-body">
+              <h4>Jean-Claude Martin</h4>
+              <p class="partner-role">Potier artisan — Atelier Terre & Feu, Lectoure</p>
+              <blockquote>« L'argile du Gers a des secrets que je transmets depuis 30 ans. Mes mains guidées par la tradition créent des pièces uniques. »</blockquote>
+            </div>
+          </article>
+
+          <article class="partner-card">
+            <div class="partner-media"><img src="https://tributrip-urs-voyageurs-gourmands.lovable.app/assets/artisan-fermiere-B9SFaPa0.jpg" alt="Sophie Bernadotte"></div>
+            <div class="partner-body">
+              <h4>Sophie Bernadotte</h4>
+              <p class="partner-role">Apicultrice — Ruchers d'Armagnac, Eauze</p>
+              <blockquote>« Mes abeilles butinent les fleurs sauvages de Gascogne. Leur miel doré porte en lui toute la douceur de nos paysages. »</blockquote>
+            </div>
+          </article>
         </div>
       </div>
+
       <div class="lang-en" style="display:none">
-        <h2>Local Stories</h2>
-        <p>Portraits, stories and short chronicles of producers and travellers.</p>
-        <div class="stories-list">
-          <article class="story"> <h4>Portrait: Marie</h4> <p>Olive oil producer — story coming soon.</p> </article>
-          <article class="story"> <h4>Sunday Market</h4> <p>Strolls, encounters and flavours.</p> </article>
+        <h2>Our local partners</h2>
+        <p>Meet the men and women who share their skills and welcome our travellers.</p>
+        <div class="partners-grid">
+          <article class="partner-card">
+            <div class="partner-media"><img src="https://tributrip-urs-voyageurs-gourmands.lovable.app/assets/artisan-vigneron-CJpyE2Z7.jpg" alt="Pierre Dubois"></div>
+            <div class="partner-body">
+              <h4>Pierre Dubois</h4>
+              <p class="partner-role">Winemaker — Domaine des Coteaux, Condom</p>
+              <blockquote>"Each bottle tells the story of our terroir. With Tributrip, I share this passion with curious travellers who become friends."</blockquote>
+            </div>
+          </article>
+
+          <article class="partner-card">
+            <div class="partner-media"><img src="https://tributrip-urs-voyageurs-gourmands.lovable.app/assets/artisan-fermiere-B9SFaPa0.jpg" alt="Marie Lartigau"></div>
+            <div class="partner-body">
+              <h4>Marie Lartigau</h4>
+              <p class="partner-role">Organic farmer — Ferme du Bonheur, Auch</p>
+              <blockquote>"Our farm is a place of life where every vegetable grows with love. Welcoming Tributrip travellers is sharing our way of life."</blockquote>
+            </div>
+          </article>
+
+          <article class="partner-card">
+            <div class="partner-media"><img src="https://tributrip-urs-voyageurs-gourmands.lovable.app/assets/artisan-vigneron-CJpyE2Z7.jpg" alt="Jean-Claude Martin"></div>
+            <div class="partner-body">
+              <h4>Jean-Claude Martin</h4>
+              <p class="partner-role">Potter — Atelier Terre & Feu, Lectoure</p>
+              <blockquote>"The clay of Gers holds secrets I have passed down for 30 years. My hands guided by tradition create unique pieces."</blockquote>
+            </div>
+          </article>
+
+          <article class="partner-card">
+            <div class="partner-media"><img src="https://tributrip-urs-voyageurs-gourmands.lovable.app/assets/artisan-fermiere-B9SFaPa0.jpg" alt="Sophie Bernadotte"></div>
+            <div class="partner-body">
+              <h4>Sophie Bernadotte</h4>
+              <p class="partner-role">Beekeeper — Ruchers d'Armagnac, Eauze</p>
+              <blockquote>"My bees forage wild flowers of Gascogne. Their golden honey carries the sweetness of our landscapes."</blockquote>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
     <!-- Featured Rooms (from Montana template: 'Choose a Better Room') -->
-    <section id="rooms" class="section rooms">
+  <section id="rooms" class="section rooms" data-aos="fade-up" data-aos-duration="700" data-aos-delay="160">
       <div class="lang-fr">
-        <h2>Chambres à la une</h2>
-        <p>Choisissez une chambre adaptée à votre séjour.</p>
+        <h2>Expériences en vedette</h2>
+        <p>Quelques expériences représentatives pour inspirer votre voyage.</p>
       </div>
       <div class="lang-en" style="display:none">
-        <h2>Featured Rooms</h2>
-        <p>Choose a better room for your stay.</p>
+        <h2>Featured Experiences</h2>
+        <p>A selection of experiences to inspire your trip.</p>
       </div>
 
       <div class="rooms_here">
@@ -127,10 +281,12 @@
             <img src="../selected-templates/montana/img/rooms/1.png" alt="Superior Room">
             <div class="room_heading d-flex justify-content-between align-items-center">
               <div class="room_heading_inner">
-                <span>From €250/night</span>
-                <h3>Superior Room</h3>
+                <span class="lang-fr">Moments de détente, paysages doux.</span>
+                <span class="lang-en" style="display:none">Relaxation, gentle landscapes and renewal.</span>
+                <h3 class="lang-fr">Tribu Chill</h3>
+                <h3 class="lang-en" style="display:none">Tribu Chill</h3>
               </div>
-              <a href="#contact" class="line-button">book now</a>
+              <a href="#contact" class="line-button"><span class="lang-fr">Réserver</span><span class="lang-en" style="display:none">Book now</span></a>
             </div>
           </div>
         </div>
@@ -140,10 +296,12 @@
             <img src="../selected-templates/montana/img/rooms/2.png" alt="Deluxe Room">
             <div class="room_heading d-flex justify-content-between align-items-center">
               <div class="room_heading_inner">
-                <span>From €250/night</span>
-                <h3>Deluxe Room</h3>
+                <span class="lang-fr">Rencontres locales et ateliers.</span>
+                <span class="lang-en" style="display:none">Local encounters and hands-on workshops.</span>
+                <h3 class="lang-fr">Tribu Immersion</h3>
+                <h3 class="lang-en" style="display:none">Tribu Immersion</h3>
               </div>
-              <a href="#contact" class="line-button">book now</a>
+              <a href="#contact" class="line-button"><span class="lang-fr">Réserver</span><span class="lang-en" style="display:none">Book now</span></a>
             </div>
           </div>
         </div>
@@ -153,10 +311,12 @@
             <img src="../selected-templates/montana/img/rooms/3.png" alt="Signature Room">
             <div class="room_heading d-flex justify-content-between align-items-center">
               <div class="room_heading_inner">
-                <span>From €250/night</span>
-                <h3>Signature Room</h3>
+                <span class="lang-fr">Saveurs et producteurs locaux.</span>
+                <span class="lang-en" style="display:none">Local flavours and meetings with producers.</span>
+                <h3 class="lang-fr">Tribu Yummy</h3>
+                <h3 class="lang-en" style="display:none">Tribu Yummy</h3>
               </div>
-              <a href="#contact" class="line-button">book now</a>
+              <a href="#contact" class="line-button"><span class="lang-fr">Réserver</span><span class="lang-en" style="display:none">Book now</span></a>
             </div>
           </div>
         </div>
@@ -166,23 +326,21 @@
             <img src="../selected-templates/montana/img/rooms/4.png" alt="Couple Room">
             <div class="room_heading d-flex justify-content-between align-items-center">
               <div class="room_heading_inner">
-                <span>From €250/night</span>
-                <h3>Couple Room</h3>
+                <span class="lang-fr">Balades, découverte active.</span>
+                <span class="lang-en" style="display:none">Walks and active discovery.</span>
+                <h3 class="lang-fr">Tribu Adventure</h3>
+                <h3 class="lang-en" style="display:none">Tribu Adventure</h3>
               </div>
-              <a href="#contact" class="line-button">book now</a>
+              <a href="#contact" class="line-button"><span class="lang-fr">Réserver</span><span class="lang-en" style="display:none">Book now</span></a>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="map" class="section map">
-      <h2>Carte interactive</h2>
-      <p>Carte des hôtes et points d'intérêt. (Prototype: Leaflet + JSON)</p>
-      <div id="map-canvas" style="height:300px;background:#eee;display:flex;align-items:center;justify-content:center;">Carte placeholder</div>
-    </section>
+    <!-- Interactive map section removed (was a Leaflet prototype). Map placeholder removed to keep page focused; can be restored if needed) -->
 
-    <section id="contact" class="section contact">
+  <section id="contact" class="section contact" data-aos="fade-up" data-aos-duration="700" data-aos-delay="240">
       <div class="contact-grid lang-fr">
         <div class="contact-form-card">
           <h2>Contact</h2>
@@ -373,6 +531,8 @@
     <p>© Tributrip — Slow discovery &amp; local warmth</p>
   </footer>
 
+  <!-- AOS script (strategy template) -->
+  <script src="../selected-templates/strategy/assets/vendor/aos/aos.js"></script>
   <script src="js/site.js"></script>
   <script>
     // Smooth scroll for nav links
