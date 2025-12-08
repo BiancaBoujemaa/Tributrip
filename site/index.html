@@ -21,20 +21,22 @@
       <nav id="navmenu" class="navmenu">
         <!-- bilingual nav lists -->
         <ul class="lang-fr">
-          <li><a href="#hero">Accueil</a></li>
-          <li><a href="#offers">Expériences</a></li>
+          <li><a href="#hero" class="active">Accueil</a></li>
           <li><a href="#spirit">Esprit</a></li>
+          <li><a href="#spirit">Qui sommes-nous</a></li>
+          <li><a href="#offers">Prochains départs</a></li>
           <li><a href="#featured">Récits</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#contact">Contacts</a></li>
         </ul>
         <ul class="lang-en" style="display:none">
-          <li><a href="#hero">Home</a></li>
-          <li><a href="#offers">Experiences</a></li>
+          <li><a href="#hero" class="active">Home</a></li>
           <li><a href="#spirit">Spirit</a></li>
+          <li><a href="#spirit">About Us</a></li>
+          <li><a href="#offers">Upcoming Departures</a></li>
           <li><a href="#featured">Stories</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list" aria-hidden="true"></i>
+        <button type="button" class="mobile-nav-toggle d-xl-none bi bi-list" aria-label="Toggle navigation"></button>
       </nav>
 
       <div class="header-controls">
@@ -56,11 +58,11 @@
       </video>
       <div class="hero-inner lang-fr">
         <div class="hero-badge">Slow tourisme • Gers • France</div>
-        <h1>Des voyages qui<br><span class="accent">éveillent les sens</span></h1>
-        <p class="lead">Découvrez la France autrement avec Tributrip. Rencontres authentiques, saveurs locales et territoires préservés du Gers et d'Occitanie.</p>
+        <h1>Des voyages qui<br>éveillent les sens</h1>
+        <p class="lead">Avec Tributrip, vivez des voyages qui vous connectent au monde, aux autres et à vous-même, à travers des expériences authentiques et transformatrices</p>
         <div class="hero-ctas">
-          <a class="btn primary" href="#rooms">Découvrir nos expériences</a>
-          <a class="btn secondary" href="#contact">Nos partenaires locaux</a>
+          <a class="btn primary" href="#offers">Mexique</a>
+          <a class="btn secondary" href="#offers">France</a>
         </div>
         <ul class="hero-features">
           <li>100% authentique</li>
@@ -72,11 +74,11 @@
 
       <div class="hero-inner lang-en" style="display:none">
         <div class="hero-badge">Slow tourism • Gers • France</div>
-        <h1>Journeys that<br><span class="accent">awaken the senses</span></h1>
-        <p class="lead">Discover France differently with Tributrip. Authentic encounters, local flavours and well-preserved territories across Gers and Occitanie.</p>
+        <h1>Journeys that<br>awaken the senses</h1>
+        <p class="lead">With Tributrip, experience journeys that connect you to the world, to others, and to yourself, through authentic and transformative experiences.</p>
         <div class="hero-ctas">
-          <a class="btn primary" href="#rooms">Discover our experiences</a>
-          <a class="btn secondary" href="#contact">Our local partners</a>
+          <a class="btn primary" href="#offers">Mexico</a>
+          <a class="btn secondary" href="#offers">France</a>
         </div>
         <ul class="hero-features">
           <li>100% authentic</li>
@@ -88,16 +90,22 @@
     </section>
 
     <!-- Ongoing Offers (from Montana template) -->
-  <section id="offers" class="section offers_area" data-aos="fade-up" data-aos-duration="700" data-aos-delay="120">
+  <section id="offers" class="section offers_area" data-aos="fade-up" data-aos-duration="700" data-aos-delay="120" style="display: none;">
     <div class="container">
       <div class="row">
         <div class="col-xl-12">
           <div class="section_title text-center mb-60">
             <div class="lang-fr">
+              <!-- <span>Nos expériences</span> -->
+              <h2>Découvrez nos expériences</h2>
+              <h3>Nos expériences</h3>
               <h2>Nos expériences</h2>
             </div>
             <div class="lang-en" style="display:none">
+              <!-- <span>Our experiences</span> -->
+              <h2>Discover our experiences</h3>
               <h2>Our experiences</h2>
+              <h3>Our experiences</h2>
             </div>
           </div>
         </div>
@@ -162,90 +170,107 @@
   </section>
 
     <!-- contact-sections removed here and moved under the Contact section for clearer structure -->
-  <section id="spirit" class="section spirit partners" data-aos="fade-up" data-aos-duration="700">
+
+  <section id="spirit" class="section spirit" data-aos="fade-up" data-aos-duration="700">
       <div class="lang-fr">
         <h2>Esprit Tributrip</h2>
         <p>Authenticité · Connexion · Découverte · Sérénité · Curiosité</p>
         <p class="lead">Nous privilégions le slow travel, les rencontres vraies et les expériences qui respectent le territoire.</p>
-        <p>Rencontrez les hommes et femmes qui partagent leur savoir-faire et accueillent nos voyageurs.</p>
-        <div class="partners-grid">
-          <article class="partner-card">
-            <div class="partner-media"><img src="https://tributrip-urs-voyageurs-gourmands.lovable.app/assets/artisan-vigneron-CJpyE2Z7.jpg" alt="Pierre Dubois"></div>
-            <div class="partner-body">
-              <h4>Pierre Dubois</h4>
-              <p class="partner-role">Vigneron passionné — Domaine des Coteaux, Condom</p>
-              <blockquote>« Chaque bouteille raconte l'histoire de notre terroir. Avec Tributrip, je partage cette passion avec des voyageurs curieux qui deviennent des amis. »</blockquote>
-            </div>
-          </article>
-          <article class="partner-card">
-            <div class="partner-media"><img src="https://tributrip-urs-voyageurs-gourmands.lovable.app/assets/artisan-fermiere-B9SFaPa0.jpg" alt="Marie Lartigau"></div>
-            <div class="partner-body">
-              <h4>Marie Lartigau</h4>
-              <p class="partner-role">Fermière bio — Ferme du Bonheur, Auch</p>
-              <blockquote>« Notre ferme est un lieu de vie où chaque légume pousse avec amour. Recevoir les voyageurs Tributrip, c'est partager notre art de vivre. »</blockquote>
-            </div>
-          </article>
-          <article class="partner-card">
-            <div class="partner-media"><img src="https://tributrip-urs-voyageurs-gourmands.lovable.app/assets/artisan-vigneron-CJpyE2Z7.jpg" alt="Jean-Claude Martin"></div>
-            <div class="partner-body">
-              <h4>Jean-Claude Martin</h4>
-              <p class="partner-role">Potier artisan — Atelier Terre & Feu, Lectoure</p>
-              <blockquote>« L'argile du Gers a des secrets que je transmets depuis 30 ans. Mes mains guidées par la tradition créent des pièces uniques. »</blockquote>
-            </div>
-          </article>
-          <article class="partner-card">
-            <div class="partner-media"><img src="https://tributrip-urs-voyageurs-gourmands.lovable.app/assets/artisan-fermiere-B9SFaPa0.jpg" alt="Sophie Bernadotte"></div>
-            <div class="partner-body">
-              <h4>Sophie Bernadotte</h4>
-              <p class="partner-role">Apicultrice — Ruchers d'Armagnac, Eauze</p>
-              <blockquote>« Mes abeilles butinent les fleurs sauvages de Gascogne. Leur miel doré porte en lui toute la douceur de nos paysages. »</blockquote>
-            </div>
-          </article>
+        
+        <div style="margin-top:60px">
+          <h3 style="margin-top:0">Rencontrez les artisans du terroir</h3>
+          <p>Chaque rencontre est une invitation à découvrir l'âme authentique de nos territoires. Des hommes et des femmes passionnés qui perpétuent les traditions et savoir-faire du Gers.</p>
+          <div class="partners-grid">
+            <article class="partner-card">
+              <div class="partner-media"><img src="https://tributrip-urs-voyageurs-gourmands.lovable.app/assets/artisan-vigneron-CJpyE2Z7.jpg" alt="Pierre Dubois"></div>
+              <div class="partner-body">
+                <h4>Pierre Dubois</h4>
+                <p class="partner-role">Vigneron passionné — Domaine des Coteaux, Condom</p>
+                <blockquote>« Chaque bouteille raconte l'histoire de notre terroir. Avec Tributrip, je partage cette passion avec des voyageurs curieux qui deviennent des amis. »</blockquote>
+              </div>
+            </article>
+
+            <article class="partner-card">
+              <div class="partner-media"><img src="https://tributrip-urs-voyageurs-gourmands.lovable.app/assets/artisan-fermiere-B9SFaPa0.jpg" alt="Marie Lartigau"></div>
+              <div class="partner-body">
+                <h4>Marie Lartigau</h4>
+                <p class="partner-role">Fermière bio — Ferme du Bonheur, Auch</p>
+                <blockquote>« Notre ferme est un lieu de vie où chaque légume pousse avec amour. Recevoir les voyageurs Tributrip, c'est partager notre art de vivre. »</blockquote>
+              </div>
+            </article>
+
+            <article class="partner-card">
+              <div class="partner-media"><img src="https://tributrip-urs-voyageurs-gourmands.lovable.app/assets/artisan-vigneron-CJpyE2Z7.jpg" alt="Jean-Claude Martin"></div>
+              <div class="partner-body">
+                <h4>Jean-Claude Martin</h4>
+                <p class="partner-role">Potier artisan — Atelier Terre & Feu, Lectoure</p>
+                <blockquote>« L'argile du Gers a des secrets que je transmets depuis 30 ans. Mes mains guidées par la tradition créent des pièces uniques. »</blockquote>
+              </div>
+            </article>
+
+            <article class="partner-card">
+              <div class="partner-media"><img src="https://tributrip-urs-voyageurs-gourmands.lovable.app/assets/artisan-fermiere-B9SFaPa0.jpg" alt="Sophie Bernadotte"></div>
+              <div class="partner-body">
+                <h4>Sophie Bernadotte</h4>
+                <p class="partner-role">Apicultrice — Ruchers d'Armagnac, Eauze</p>
+                <blockquote>« Mes abeilles butinent les fleurs sauvages de Gascogne. Leur miel doré porte en lui toute la douceur de nos paysages. »</blockquote>
+              </div>
+            </article>
+          </div>
         </div>
       </div>
+
       <div class="lang-en" style="display:none">
         <h2>Tributrip Spirit</h2>
         <p>Authenticity · Connection · Discovery · Serenity · Curiosity</p>
         <p class="lead">We favour slow travel, genuine encounters and experiences that respect the local territory.</p>
-        <p>Meet the men and women who share their skills and welcome our travellers.</p>
-        <div class="partners-grid">
-          <article class="partner-card">
-            <div class="partner-media"><img src="https://tributrip-urs-voyageurs-gourmands.lovable.app/assets/artisan-vigneron-CJpyE2Z7.jpg" alt="Pierre Dubois"></div>
-            <div class="partner-body">
-              <h4>Pierre Dubois</h4>
-              <p class="partner-role">Winemaker — Domaine des Coteaux, Condom</p>
-              <blockquote>"Each bottle tells the story of our terroir. With Tributrip, I share this passion with curious travellers who become friends."</blockquote>
-            </div>
-          </article>
-          <article class="partner-card">
-            <div class="partner-media"><img src="https://tributrip-urs-voyageurs-gourmands.lovable.app/assets/artisan-fermiere-B9SFaPa0.jpg" alt="Marie Lartigau"></div>
-            <div class="partner-body">
-              <h4>Marie Lartigau</h4>
-              <p class="partner-role">Organic farmer — Ferme du Bonheur, Auch</p>
-              <blockquote>"Our farm is a place of life where every vegetable grows with love. Welcoming Tributrip travellers is sharing our way of life."</blockquote>
-            </div>
-          </article>
-          <article class="partner-card">
-            <div class="partner-media"><img src="https://tributrip-urs-voyageurs-gourmands.lovable.app/assets/artisan-vigneron-CJpyE2Z7.jpg" alt="Jean-Claude Martin"></div>
-            <div class="partner-body">
-              <h4>Jean-Claude Martin</h4>
-              <p class="partner-role">Potter — Atelier Terre & Feu, Lectoure</p>
-              <blockquote>"The clay of Gers holds secrets I have passed down for 30 years. My hands guided by tradition create unique pieces."</blockquote>
-            </div>
-          </article>
-          <article class="partner-card">
-            <div class="partner-media"><img src="https://tributrip-urs-voyageurs-gourmands.lovable.app/assets/artisan-fermiere-B9SFaPa0.jpg" alt="Sophie Bernadotte"></div>
-            <div class="partner-body">
-              <h4>Sophie Bernadotte</h4>
-              <p class="partner-role">Beekeeper — Ruchers d'Armagnac, Eauze</p>
-              <blockquote>"My bees forage wild flowers of Gascogne. Their golden honey carries the sweetness of our landscapes."</blockquote>
-            </div>
-          </article>
+        
+        <div style="margin-top:60px">
+          <h3 style="margin-top:0">Meet the artisans of the land</h3>
+          <p>Each encounter is an invitation to discover the authentic soul of our territories. Men and women passionate about preserving the traditions and craftsmanship of Gers.</p>
+          <div class="partners-grid">
+            <article class="partner-card">
+              <div class="partner-media"><img src="https://tributrip-urs-voyageurs-gourmands.lovable.app/assets/artisan-vigneron-CJpyE2Z7.jpg" alt="Pierre Dubois"></div>
+              <div class="partner-body">
+                <h4>Pierre Dubois</h4>
+                <p class="partner-role">Winemaker — Domaine des Coteaux, Condom</p>
+                <blockquote>"Each bottle tells the story of our terroir. With Tributrip, I share this passion with curious travellers who become friends."</blockquote>
+              </div>
+            </article>
+
+            <article class="partner-card">
+              <div class="partner-media"><img src="https://tributrip-urs-voyageurs-gourmands.lovable.app/assets/artisan-fermiere-B9SFaPa0.jpg" alt="Marie Lartigau"></div>
+              <div class="partner-body">
+                <h4>Marie Lartigau</h4>
+                <p class="partner-role">Organic farmer — Ferme du Bonheur, Auch</p>
+                <blockquote>"Our farm is a place of life where every vegetable grows with love. Welcoming Tributrip travellers is sharing our way of life."</blockquote>
+              </div>
+            </article>
+
+            <article class="partner-card">
+              <div class="partner-media"><img src="https://tributrip-urs-voyageurs-gourmands.lovable.app/assets/artisan-vigneron-CJpyE2Z7.jpg" alt="Jean-Claude Martin"></div>
+              <div class="partner-body">
+                <h4>Jean-Claude Martin</h4>
+                <p class="partner-role">Potter — Atelier Terre & Feu, Lectoure</p>
+                <blockquote>"The clay of Gers holds secrets I have passed down for 30 years. My hands guided by tradition create unique pieces."</blockquote>
+              </div>
+            </article>
+
+            <article class="partner-card">
+              <div class="partner-media"><img src="https://tributrip-urs-voyageurs-gourmands.lovable.app/assets/artisan-fermiere-B9SFaPa0.jpg" alt="Sophie Bernadotte"></div>
+              <div class="partner-body">
+                <h4>Sophie Bernadotte</h4>
+                <p class="partner-role">Beekeeper — Ruchers d'Armagnac, Eauze</p>
+                <blockquote>"My bees forage wild flowers of Gascogne. Their golden honey carries the sweetness of our landscapes."</blockquote>
+              </div>
+            </article>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Featured Rooms (from Montana template: 'Choose a Better Room') -->
+  <section id="rooms" class="section rooms" data-aos="fade-up" data-aos-duration="700" data-aos-delay="160">
   <section id="featured" class="section rooms" data-aos="fade-up" data-aos-duration="700" data-aos-delay="160">
       <div class="lang-fr">
         <h2>Récits</h2>
@@ -322,115 +347,132 @@
     <!-- Interactive map section removed (was a Leaflet prototype). Map placeholder removed to keep page focused; can be restored if needed) -->
 
   <section id="contact" class="section contact" data-aos="fade-up" data-aos-duration="700" data-aos-delay="240">
-      <div class="contact-grid lang-fr">
-        <div class="contact-form-card">
-          <h2>Contact</h2>
-          <p>Écrivons votre voyage — réservez une discussion ou envoyez-nous les grandes lignes de votre projet.</p>
-          <form id="contact-form" action="#" method="post" class="contact-form">
-            <label>Prénom<input name="first_name" type="text" required></label>
-            <label>Nom<input name="last_name" type="text" required></label>
-            <label>Email<input name="email" type="email" required></label>
-            <label>Téléphone<input name="phone" type="tel"></label>
-            <label>Votre projet<textarea name="project" rows="4" required></textarea></label>
-            <button class="btn" type="submit">Envoyer ma demande</button>
-          </form>
+      <!-- French version -->
+      <div class="contact-wrapper lang-fr">
+        <div class="contact-header">
+          <h2>Créons ensemble votre voyage</h2>
+          <p>Partagez-nous vos envies, vos rêves de découverte. Notre équipe vous accompagne pour créer l'expérience qui vous ressemble.</p>
         </div>
 
-        <aside class="contact-info-card">
-          <div class="contact-info-inner">
-            <h3 class="section_title_small">Créons ensemble votre voyage</h3>
-            <!-- Stacked contact subsections to match the live site -->
-            <div class="contact-subsection whatsapp">
-              <img src="../old-site/logo.png" alt="whatsapp" class="info-icon">
-              <div class="sub-content">
-                <h4>WhatsApp Direct</h4>
-                <p>Contactez-nous instantanément pour une réponse rapide</p>
-                <a class="btn whatsapp" href="https://wa.me/33600000000" target="_blank">Ouvrir WhatsApp</a>
+        <div class="contact-grid">
+          <!-- Form on left -->
+          <div class="contact-form-card">
+            <h3>Écrivez-nous</h3>
+            <form id="contact-form-fr" action="#" method="post" class="contact-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="first_name_fr">Prénom <span class="required">*</span></label>
+                  <input id="first_name_fr" name="first_name" type="text" required>
+                </div>
+                <div class="form-group">
+                  <label for="last_name_fr">Nom <span class="required">*</span></label>
+                  <input id="last_name_fr" name="last_name" type="text" required>
+                </div>
               </div>
-            </div>
-
-            <div class="contact-subsection">
-              <img src="../old-site/logo.png" alt="email" class="info-icon">
-              <div class="sub-content">
-                <h4>Email</h4>
-                <p><a href="mailto:contact@tributrip.fr">contact@tributrip.fr</a></p>
+              <div class="form-group">
+                <label for="email_fr">Email <span class="required">*</span></label>
+                <input id="email_fr" name="email" type="email" required>
               </div>
-            </div>
-
-            <div class="contact-subsection">
-              <img src="../old-site/logo.png" alt="phone" class="info-icon">
-              <div class="sub-content">
-                <h4>Téléphone</h4>
-                <p><a href="tel:+33562000000">+33 5 62 XX XX XX</a></p>
+              <div class="form-group">
+                <label for="phone_fr">Téléphone</label>
+                <input id="phone_fr" name="phone" type="tel">
               </div>
-            </div>
-
-            <div class="contact-subsection">
-              <img src="../old-site/logo.png" alt="location" class="info-icon">
-              <div class="sub-content">
-                <h4>Notre base</h4>
-                <p>Au cœur du Gers, entre Auch et Condom — nous nous déplaçons partout en Occitanie</p>
+              <div class="form-group">
+                <label for="project_fr">Votre projet de voyage <span class="required">*</span></label>
+                <textarea id="project_fr" name="project" rows="5" required></textarea>
               </div>
-            </div>
-
-            <div class="contact-note">Réponse rapide sous 48 heures. Pour une demande urgente, utilisez WhatsApp.</div>
+              <button class="btn primary" type="submit">Envoyer ma demande</button>
+            </form>
           </div>
-        </aside>
+
+          <!-- Info cards on right -->
+          <aside class="contact-info">
+            <div class="contact-info-item whatsapp-item">
+              <h4>WhatsApp Direct</h4>
+              <p>Contactez-nous instantanément pour une réponse rapide</p>
+              <a class="btn whatsapp" href="https://wa.me/33600000000" target="_blank">Ouvrir WhatsApp</a>
+            </div>
+
+            <div class="contact-info-item">
+              <h4>Email</h4>
+              <p><a href="mailto:contact@tributrip.fr">contact@tributrip.fr</a></p>
+            </div>
+
+            <div class="contact-info-item">
+              <h4>Téléphone</h4>
+              <p><a href="tel:+33562000000">+33 5 62 XX XX XX</a></p>
+            </div>
+
+            <div class="contact-info-item">
+              <h4>Notre base</h4>
+              <p>Au cœur du Gers, entre Auch et Condom<br>Nous vous rencontrons partout en Occitanie</p>
+            </div>
+          </aside>
+        </div>
       </div>
 
-      <div class="contact-grid lang-en" style="display:none">
-        <div class="contact-form-card">
-          <h2>Let's create your trip together</h2>
-          <p>Write to us — tell us the outline of your travel project or book a quick chat.</p>
-          <form id="contact-form-en" action="#" method="post" class="contact-form">
-            <label>First name<input name="first_name" type="text" required></label>
-            <label>Last name<input name="last_name" type="text" required></label>
-            <label>Email<input name="email" type="email" required></label>
-            <label>Phone<input name="phone" type="tel"></label>
-            <label>Your travel project<textarea name="project" rows="4" required></textarea></label>
-            <button class="btn" type="submit">Send my request</button>
-          </form>
+      <!-- English version -->
+      <div class="contact-wrapper lang-en" style="display:none">
+        <div class="contact-header">
+          <h2>Let's create your journey together</h2>
+          <p>Share your wishes and dreams of discovery with us. Our team will guide you to create the experience that truly fits you.</p>
         </div>
 
-        <aside class="contact-info-card">
-          <div class="contact-info-inner">
-            <h3 class="section_title_small">Let's create your trip together</h3>
-            <div class="contact-subsection whatsapp">
-              <img src="../old-site/logo.png" alt="whatsapp" class="info-icon">
-              <div class="sub-content">
-                <h4>WhatsApp Direct</h4>
-                <p>Contact us directly for a fast reply</p>
-                <a class="btn whatsapp" href="https://wa.me/33600000000" target="_blank">Open WhatsApp</a>
+        <div class="contact-grid">
+          <!-- Form on left -->
+          <div class="contact-form-card">
+            <h3>Write to us</h3>
+            <form id="contact-form-en" action="#" method="post" class="contact-form">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="first_name_en">First name <span class="required">*</span></label>
+                  <input id="first_name_en" name="first_name" type="text" required>
+                </div>
+                <div class="form-group">
+                  <label for="last_name_en">Last name <span class="required">*</span></label>
+                  <input id="last_name_en" name="last_name" type="text" required>
+                </div>
               </div>
-            </div>
-
-            <div class="contact-subsection">
-              <img src="../old-site/logo.png" alt="email" class="info-icon">
-              <div class="sub-content">
-                <h4>Email</h4>
-                <p><a href="mailto:contact@tributrip.fr">contact@tributrip.fr</a></p>
+              <div class="form-group">
+                <label for="email_en">Email <span class="required">*</span></label>
+                <input id="email_en" name="email" type="email" required>
               </div>
-            </div>
-
-            <div class="contact-subsection">
-              <img src="../old-site/logo.png" alt="phone" class="info-icon">
-              <div class="sub-content">
-                <h4>Phone</h4>
-                <p><a href="tel:+33562000000">+33 5 62 XX XX XX</a></p>
+              <div class="form-group">
+                <label for="phone_en">Phone</label>
+                <input id="phone_en" name="phone" type="tel">
               </div>
-            </div>
-
-            <div class="contact-subsection">
-              <img src="../old-site/logo.png" alt="location" class="info-icon">
-              <div class="sub-content">
-                <h4>Base</h4>
-                <p>At the heart of Gers, between Auch and Condom — we operate across Occitanie</p>
+              <div class="form-group">
+                <label for="project_en">Your travel project <span class="required">*</span></label>
+                <textarea id="project_en" name="project" rows="5" required></textarea>
               </div>
-            </div>
-
-            <div class="contact-note">We usually reply within 48 hours. For urgent requests use WhatsApp.</div>
+              <button class="btn primary" type="submit">Send my request</button>
+            </form>
           </div>
-        </aside>
+
+          <!-- Info cards on right -->
+          <aside class="contact-info">
+            <div class="contact-info-item whatsapp-item">
+              <h4>WhatsApp Direct</h4>
+              <p>Contact us instantly for a quick reply</p>
+              <a class="btn whatsapp" href="https://wa.me/33600000000" target="_blank">Open WhatsApp</a>
+            </div>
+
+            <div class="contact-info-item">
+              <h4>Email</h4>
+              <p><a href="mailto:contact@tributrip.fr">contact@tributrip.fr</a></p>
+            </div>
+
+            <div class="contact-info-item">
+              <h4>Phone</h4>
+              <p><a href="tel:+33562000000">+33 5 62 XX XX XX</a></p>
+            </div>
+
+            <div class="contact-info-item">
+              <h4>Our base</h4>
+              <p>At the heart of Gers, between Auch and Condom<br>We meet you everywhere across Occitanie</p>
+            </div>
+          </aside>
+        </div>
       </div>
     </section>
 
@@ -443,16 +485,17 @@
   <!-- AOS script (strategy template) -->
   <script src="../selected-templates/strategy/assets/vendor/aos/aos.js"></script>
   <script src="js/site.js"></script>
-  <script>
-    // Smooth scroll for nav links
-    // Smooth scroll for nav links
-    document.querySelectorAll('.nav-links a').forEach(link =>
-      link.addEventListener('click', e => {
+  <script>    
+    // Smooth scroll for nav links.
+    document.querySelectorAll('#navmenu a[href^="#"]').forEach(link => {
+      link.addEventListener('click', function(e) {
         e.preventDefault();
-        const target = document.querySelector(link.getAttribute('href'));
-        if (target) target.scrollIntoView({ behavior: 'smooth' });
-      })
-    );
+        let target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
 
     // Language toggle: call the shared setLanguage function so visibility is handled consistently
     const frBtn = document.getElementById('lang-fr');
