@@ -35,12 +35,28 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
 	// Refresh AOS when clicking anchor links to trigger animations on navigation
 	document.querySelectorAll('a[href^="#"]').forEach(link => {
-		link.addEventListener('click', () => {
-			setTimeout(() => {
-				if(typeof AOS !== 'undefined' && AOS && typeof AOS.refresh === 'function'){
-					AOS.refresh();
+		link.addEventListener('click', (e) => {
+			const href = link.getAttribute('href');
+			if(href && href !== '#'){
+				const target = document.querySelector(href);
+				if(target){
+					// Use setTimeout to ensure scroll happens after navigation
+					setTimeout(() => {
+						// Calculate scroll position with offset for fixed header
+						const headerHeight = 100; // approximate fixed header height
+						const targetTop = target.getBoundingClientRect().top + window.scrollY - headerHeight;
+						window.scrollTo({
+							top: targetTop,
+							behavior: 'auto' // use auto instead of smooth to avoid scroll-margin-top conflicts
+						});
+						
+						// Refresh AOS after scroll
+						if(typeof AOS !== 'undefined' && AOS && typeof AOS.refresh === 'function'){
+							AOS.refresh();
+						}
+					}, 50);
 				}
-			}, 100);
+			}
 		});
 	});
 
