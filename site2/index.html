@@ -3,29 +3,13 @@
 
 <head>
   <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Index - Tour Bootstrap Template</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
-
-  <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-
-  <!-- Main CSS File -->
-  <link href="assets/css/main.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tributrip — Voyage qui éveillent les sens</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <!-- AOS (Animate On Scroll) from the Strategy template -->
+  <link rel="stylesheet" href="assets/vendor/aos/aos.css">
+  <!-- Google Fonts: Outfit for headings; Quicksand used as a soft sans substitute for Playpen Sans (replace with Playpen Sans files if provided) -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Quicksand:wght@300;400;600&display=swap" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: Tour
@@ -41,56 +25,37 @@
   <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="header-container container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
-      <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
-        <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.webp" alt=""> -->
-        <h1 class="sitename">Tour</h1>
+      <a href="#hero" class="logo d-flex align-items-center">
+        <img src="../old-site/logo.png" alt="Tributrip" style="height:36px;display:block">
       </a>
 
       <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="index.html" class="active">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="destinations.html">Destinations</a></li>
-          <li><a href="tours.html">Tours</a></li>
-          <li><a href="gallery.html">Gallery</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li class="dropdown"><a href="#"><span>More Pages</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-            <ul>
-              <li><a href="destination-details.html">Destination Details</a></li>
-              <li><a href="tour-details.html">Tour Details</a></li>
-              <li><a href="booking.html">Booking</a></li>
-              <li><a href="testimonials">Testimonials</a></li>
-              <li><a href="faq.html">Frequently Asked Questions</a></li>
-              <li><a href="blog-details.html">Blog Details</a></li>
-              <li><a href="terms.html">Terms</a></li>
-              <li><a href="privacy.html">Privacy</a></li>
-              <li><a href="404.html">404</a></li>
-            </ul>
-          </li>
-          <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-            <ul>
-              <li><a href="#">Dropdown 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-                <ul>
-                  <li><a href="#">Deep Dropdown 1</a></li>
-                  <li><a href="#">Deep Dropdown 2</a></li>
-                  <li><a href="#">Deep Dropdown 3</a></li>
-                  <li><a href="#">Deep Dropdown 4</a></li>
-                  <li><a href="#">Deep Dropdown 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Dropdown 2</a></li>
-              <li><a href="#">Dropdown 3</a></li>
-              <li><a href="#">Dropdown 4</a></li>
-            </ul>
-          </li>
-          <li><a href="contact.html">Contact</a></li>
+        <!-- bilingual nav lists -->
+        <ul class="lang-fr">
+          <li><a href="#hero" class="active">Accueil</a></li>
+          <li><a href="#spirit">Esprit</a></li>
+          <li><a href="#spirit">Qui sommes-nous</a></li>
+          <li><a href="#offers">Prochains départs</a></li>
+          <li><a href="#featured">Récits</a></li>
+          <li><a href="#contact">Contacts</a></li>
         </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        <ul class="lang-en" style="display:none">
+          <li><a href="#hero" class="active">Home</a></li>
+          <li><a href="#spirit">Spirit</a></li>
+          <li><a href="#spirit">About Us</a></li>
+          <li><a href="#offers">Upcoming Departures</a></li>
+          <li><a href="#featured">Stories</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button type="button" class="mobile-nav-toggle d-xl-none bi bi-list" aria-label="Toggle navigation"></button>
       </nav>
 
-      <a class="btn-getstarted" href="destiantios.html">Get Started</a>
+      <div class="header-controls">
+        <div class="lang-toggle">
+          <button id="lang-fr" class="active">FR</button>
+          <button id="lang-en">EN</button>
+        </div>
+      </div>
 
     </div>
   </header>

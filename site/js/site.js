@@ -30,8 +30,19 @@ document.addEventListener('DOMContentLoaded', ()=>{
 // Initialize AOS (Animate On Scroll) if present and add a small scroll class toggle
 document.addEventListener('DOMContentLoaded', ()=>{
 	if(typeof AOS !== 'undefined' && AOS && typeof AOS.init === 'function'){
-		AOS.init({ duration: 700, easing: 'ease-in-out', once: true, mirror: false });
+		AOS.init({ duration: 700, easing: 'ease-in-out', once: false, mirror: false });
 	}
+
+	// Refresh AOS when clicking anchor links to trigger animations on navigation
+	document.querySelectorAll('a[href^="#"]').forEach(link => {
+		link.addEventListener('click', () => {
+			setTimeout(() => {
+				if(typeof AOS !== 'undefined' && AOS && typeof AOS.refresh === 'function'){
+					AOS.refresh();
+				}
+			}, 100);
+		});
+	});
 
 	// Add a small body.scrolled class for header effects (mimic Strategy toggleScrolled)
 	function toggleScrolled(){
