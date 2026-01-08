@@ -144,12 +144,16 @@ hr + section[class]{
   padding-top: 28px;
 }
 /* Typography and brand fonts */
-body{font-family:'Quicksand', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;margin:0;color:var(--gingerbread);background:var(--bisque);line-height:1.65;-webkit-font-smoothing:antialiased}
+body{font-family:'Quicksand', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;margin:0;color:var(--gingerbread);background:var(--bisque);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 h1,h2,h3,.brand{font-family:'Outfit', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;color:var(--prussian-blue);letter-spacing:0.02em}
 
 /* Scroll margin to account for fixed header */
 html {
   scroll-behavior: smooth;
+}
+
+html, body{
+  overflow-x:hidden;
 }
 
 section {
@@ -202,6 +206,10 @@ h1, h2, h3, .section-title {
 .hero-features{display:flex;gap:28px;list-style:none;padding:0;margin:18px 0 34px;color:rgba(255,255,255,0.95);align-items:center}
 .hero-features li{position:relative;padding-left:0;font-size:0.95rem}
 .hero-features li::before{content:"•";display:inline-block;color:var(--bisque);margin-right:8px}
+
+@media(max-width:700px){
+  .hero-features{flex-wrap:wrap;justify-content:center;gap:12px 18px;margin-bottom:26px}
+}
 
 /* scroll indicator */
 .scroll-indicator{position:absolute;left:50%;transform:translateX(-50%);bottom:28px}
@@ -331,7 +339,7 @@ h1, h2, h3, .section-title {
 
 /* Header (traveltime-blue style) */
 .header{position:fixed;inset:12px 12px auto 12px;z-index:1200}
-.header-container{background:rgba(255,255,255,0.04);padding:10px 18px;border-radius:12px;display:flex;align-items:center;gap:18px;justify-content:flex-start}
+.header-container{position:relative;width:100%;max-width:var(--max-width);margin:0 auto;background:rgba(255,255,255,0.04);padding:10px 18px;border-radius:12px;display:flex;align-items:center;gap:18px;justify-content:flex-start}
 .logo{display:flex;align-items:center;gap:10px;text-decoration:none}
 .logo img{display:block}
 
@@ -339,7 +347,28 @@ h1, h2, h3, .section-title {
 .header-controls{position:absolute;right:18px;top:10px;display:flex;align-items:center;gap:14px}
 /* Center the nav visually by absolutely positioning it in the header container
   while keeping the logo at the left and controls (lang toggle) at the right. */
-.navmenu{position:absolute;left:50%;top:50%;transform:translate(-50%, -50%);}
+.navmenu{position:absolute;left:50%;top:50%;transform:translate(-50%, -50%);display:flex;align-items:center}
+
+/* Desktop: use 3-column layout so nav never overlaps the FR/EN toggle */
+@media(min-width:801px){
+  .header-container{display:grid;grid-template-columns:auto 1fr auto;align-items:center;column-gap:28px}
+  .navmenu{position:static;left:auto;top:auto;transform:none;justify-self:center;min-width:0}
+  .navmenu ul{justify-content:center}
+  .header-controls{position:static;right:auto;top:auto;justify-self:end}
+}
+
+/* Laptop widths: FR labels are longer; keep everything inside the header */
+@media(min-width:801px) and (max-width:1180px){
+  .header-container{column-gap:18px}
+  .navmenu ul{gap:12px;flex-wrap:wrap;row-gap:8px}
+  .navmenu a{padding:6px 6px;font-size:0.92rem}
+}
+
+/* French labels are longer than English: tighten just FR so it aligns like EN */
+@media(min-width:801px) and (max-width:1400px){
+  html[lang="fr"] .navmenu ul{gap:12px}
+  html[lang="fr"] .navmenu a{padding:6px 5px;font-size:0.90rem}
+}
 
 .header-controls .lang-toggle{display:flex;gap:6px;align-items:center}
 .header-controls .lang-toggle button{background:#ffffff;border:1px solid rgba(0,0,0,0.06);color:var(--prussian-blue);padding:6px 10px;border-radius:22px;cursor:pointer;font-weight:600}
@@ -357,16 +386,63 @@ body.scrolled .header-controls .lang-toggle .active{background:var(--safety-oran
 body:not(.scrolled) .navmenu a{color:var(--bisque)}
 .navmenu ul{display:flex;gap:clamp(10px, 2vw, 18px);list-style:none;margin:0;padding:0;align-items:center}
 .navmenu li{position:relative}
-.navmenu a{color:var(--bisque);text-decoration:none;padding:8px clamp(6px, 1.1vw, 10px);font-weight:600;white-space:nowrap;font-size:clamp(0.86rem, 1.05vw, 1rem)}
+.navmenu a{color:var(--bisque);text-decoration:none;padding:8px clamp(6px, 1.1vw, 10px);font-weight:600;white-space:nowrap;font-size:clamp(0.86rem, 1.05vw, 1rem);display:flex;align-items:center;line-height:1}
 .navmenu a:hover{color:var(--safety-orange)}
-.mobile-nav-toggle{display:none;cursor:pointer}
+.mobile-nav-toggle{display:none;cursor:pointer;border:0;background:rgba(255,255,255,0.12);color:var(--bisque);width:40px;height:40px;border-radius:10px;align-items:center;justify-content:center;font-size:28px;line-height:1;padding:0;position:relative}
+body.scrolled .mobile-nav-toggle{background:rgba(0,41,77,0.06);color:var(--prussian-blue)}
+
+/* Always-visible hamburger icon (works even without icon fonts) */
+.mobile-nav-toggle::before{
+  content:"" !important;
+  position:absolute;
+  left:50%;
+  top:50%;
+  width:20px;
+  height:2px;
+  background:currentColor;
+  border-radius:2px;
+  transform:translate(-50%,-50%);
+  box-shadow:0 -6px 0 currentColor, 0 6px 0 currentColor;
+  font-family:inherit !important;
+}
+.mobile-nav-toggle::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:50%;
+  width:20px;
+  height:2px;
+  background:currentColor;
+  border-radius:2px;
+  transform:translate(-50%,-50%) rotate(-45deg);
+  opacity:0;
+}
+
+/* Ensure Bootstrap Icons doesn't replace our hamburger/X on this button */
+.mobile-nav-toggle.bi::before{
+  content:"" !important;
+  font-family:inherit !important;
+}
+
+body.mobile-nav-active .mobile-nav-toggle::before{
+  box-shadow:none;
+  transform:translate(-50%,-50%) rotate(45deg);
+}
+body.mobile-nav-active .mobile-nav-toggle::after{opacity:1}
 .btn-getstarted{background:var(--safety-orange);color:#fff;padding:8px 18px;border-radius:30px;text-decoration:none;font-weight:700}
 
 @media(max-width:900px){.header{inset:10px 10px auto 10px}.header-container{padding:8px 12px}}
-@media(max-width:800px){.navmenu ul{display:none}.mobile-nav-toggle{display:block}}
+@media(max-width:800px){
+  .header-container{gap:10px}
+  .logo{order:1}
+  .navmenu{position:relative;left:auto;top:auto;transform:none;order:2;margin-left:auto;display:flex;align-items:center}
+  .header-controls{position:static;order:3;margin-left:8px;right:auto;top:auto}
+  .navmenu ul{display:none}
+  .mobile-nav-toggle{display:inline-flex}
+}
 
 /* Mobile nav active state */
-body.mobile-nav-active .navmenu ul{display:flex;flex-direction:column;position:absolute;top:64px;right:12px;background:rgba(255,255,255,0.95);padding:12px;border-radius:8px;box-shadow:0 8px 30px rgba(0,0,0,0.12)}
+body.mobile-nav-active .navmenu ul{display:flex;flex-direction:column;position:absolute;top:calc(100% + 10px);right:0;background:rgba(255,255,255,0.95);padding:12px;border-radius:8px;box-shadow:0 8px 30px rgba(0,0,0,0.12)}
 body.mobile-nav-active .navmenu a{color:var(--prussian-blue)}
 /* contact-sections (small cards) */
 .contact-sections{max-width:var(--max-width);margin:28px auto;padding:0 20px}
