@@ -7,6 +7,8 @@
   <link rel="stylesheet" href="../css/style.css">
   <!-- AOS (Animate On Scroll) from the Strategy template -->
   <link rel="stylesheet" href="../../selected-templates/strategy/assets/vendor/aos/aos.css">
+  <!-- Leaflet (map with multiple locations) -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Quicksand:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body class="destination-page">
@@ -236,6 +238,23 @@
       </div>
     </section>
 
+    <section class="section destination-content" id="mexico-map" data-aos="fade-up" data-aos-delay="180">
+      <div class="container">
+        <div class="lang-fr">
+          <h2>Localisation</h2>
+          <p>Départ et retour à Mexico City — itinéraire au cœur du Mexique, avec plusieurs étapes.</p>
+        </div>
+        <div class="lang-en" style="display:none">
+          <h2>Location</h2>
+          <p>Start and return in Mexico City — a multi-stop itinerary through central Mexico.</p>
+        </div>
+
+        <div class="destination-map-embed" aria-label="Map">
+          <div id="mexico-route-map" class="destination-map" role="application" aria-label="Mexico itinerary map"></div>
+        </div>
+      </div>
+    </section>
+
     <section class="section destination-content" id="mexico-cta" data-aos="fade-up" data-aos-delay="200">
       <div class="container">
         <div class="lang-fr">
@@ -253,6 +272,50 @@
   </main>
 
   <script src="../../selected-templates/strategy/assets/vendor/aos/aos.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="../js/site.js"></script>
+
+  <script>
+    (function(){
+      if(typeof L === 'undefined') return;
+      var el = document.getElementById('mexico-route-map');
+      if(!el) return;
+
+      // Key stops from the provided itinerary (approx. coordinates).
+      // Edit these lat/lng values if you want the pins to match an exact address.
+      var stops = [
+        { name: 'Mexico City', lat: 19.4326, lng: -99.1332 },
+        { name: 'Valle de Bravo', lat: 19.1957, lng: -100.1311 },
+        { name: 'Jungapeo', lat: 19.4516, lng: -100.4946 },
+        { name: 'Santiago de Querétaro', lat: 20.5888, lng: -100.3899 },
+        { name: 'San Miguel de Allende', lat: 20.9144, lng: -100.7450 },
+        { name: 'Guanajuato', lat: 21.0190, lng: -101.2574 },
+        { name: 'Peña de Bernal', lat: 20.7440, lng: -99.9420 },
+      ];
+
+      var map = L.map('mexico-route-map', { scrollWheelZoom: false });
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 18,
+        attribution: '&copy; OpenStreetMap contributors'
+      }).addTo(map);
+
+      var latlngs = [];
+      stops.forEach(function(s){
+        var ll = [s.lat, s.lng];
+        latlngs.push(ll);
+        L.marker(ll).addTo(map).bindPopup(s.name);
+      });
+
+      // Simple route line connecting stops in order (not turn-by-turn routing).
+      L.polyline(latlngs, { color: '#00294D', weight: 4, opacity: 0.85 }).addTo(map);
+
+      var bounds = L.latLngBounds(latlngs);
+      map.fitBounds(bounds.pad(0.15));
+
+      // Fix sizing when arriving via navigation/animations
+      setTimeout(function(){ map.invalidateSize(); }, 50);
+      setTimeout(function(){ map.invalidateSize(); }, 400);
+    })();
+  </script>
 </body>
 </html>
