@@ -272,7 +272,12 @@ h1, h2, h3, .section-title {
 .rooms_here .single_rooms::before{position:absolute;left:0;top:0;width:100%;height:100%;content:"";background:linear-gradient(to bottom, #fff 0%, #000 77%);z-index:1;opacity:.5}
 
 .rooms_here .single_rooms .room_thumb{position:relative;overflow:hidden}
-.rooms_here .single_rooms .room_thumb img{width:100%;display:block;transform:scale(1);transition:transform .5s}
+.rooms_here .single_rooms .room_thumb img{width:100%;display:block;transform:scale(1);transition:transform .5s;height:420px;object-fit:cover}
+
+/* Prefer a responsive, consistent crop across all cards */
+@supports (aspect-ratio: 16 / 9){
+  .rooms_here .single_rooms .room_thumb img{height:auto;aspect-ratio:16/9}
+}
 
 .rooms_here .single_rooms .room_thumb .room_heading{position:absolute;left:0;right:0;bottom:0;padding:60px 60px 47px 60px;z-index:3;color:#fff}
 @media (max-width: 767px){.rooms_here .single_rooms .room_thumb .room_heading{padding:20px}}
@@ -288,8 +293,9 @@ h1, h2, h3, .section-title {
 .rooms_here .single_rooms:hover img{transform:scale(1.1)}
 .rooms_here .single_rooms:hover .room_heading .line-button{transform:translateY(0);opacity:1;visibility:visible}
 
-/* small screens adjust */
-@media(max-width:900px){.rooms_here .single_rooms .room_thumb img{height:auto}} 
+/* small screens: keep equal size but reduce height */
+@media(max-width:900px){.rooms_here .single_rooms .room_thumb img{height:320px}} 
+@media(max-width:480px){.rooms_here .single_rooms .room_thumb img{height:240px}} 
 
 /* Enhanced contact section styles */
 .contact-grid{display:flex;gap:28px;align-items:flex-start;max-width:var(--max-width);margin:0 auto}
