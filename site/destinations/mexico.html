@@ -7,9 +7,60 @@
   <link rel="stylesheet" href="../css/style.css">
   <!-- AOS (Animate On Scroll) from the Strategy template -->
   <link rel="stylesheet" href="../../selected-templates/strategy/assets/vendor/aos/aos.css">
+  <!-- GLightbox (used only for the Mexico photo gallery) -->
+  <link rel="stylesheet" href="../../selected-templates/traveltime-blue/assets/vendor/glightbox/css/glightbox.min.css">
   <!-- Leaflet (map with multiple locations) -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Quicksand:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* Mexico page only: Photo Gallery (borrowed markup from traveltime-blue template) */
+    #mexico-gallery .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    #mexico-gallery .mexico-gallery-item a {
+      display: block;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      border-radius: 12px;
+    }
+
+    #mexico-gallery .mexico-gallery-item img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    /* GLightbox: keep opened images uniform too (cropped to the same ratio) */
+    .glightbox-container .gslide-image,
+    .glightbox-container .gslide-media {
+      aspect-ratio: 4 / 3;
+    }
+
+    .glightbox-container .gslide-image img,
+    .glightbox-container .gslide-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @media (max-width: 900px) {
+      #mexico-gallery .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 520px) {
+      #mexico-gallery .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body class="destination-page">
   <header id="header" class="header d-flex align-items-center fixed-top">
@@ -78,6 +129,67 @@
         <div class="lang-en" style="display:none">
           <h2>Overview</h2>
           <p>An itinerary designed to explore the soul of Mexico through its traditions, sacred nature and spiritual practices. This journey is an invitation to slow down, reconnect with your intuition, and build deep ties with a culture rich in symbols and wisdom.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section destination-content" id="mexico-gallery" data-aos="fade-up" data-aos-delay="130">
+      <div class="container">
+        <div class="lang-fr">
+          <h2>Galerie photo</h2>
+        </div>
+        <div class="lang-en" style="display:none">
+          <h2>Photo Gallery</h2>
+        </div>
+
+        <div class="tour-gallery">
+          <div class="gallery-grid">
+            <div class="mexico-gallery-item">
+              <a href="../img/experiences/mexico/1.png" class="glightbox" aria-label="Open photo 1">
+                <img src="../img/experiences/mexico/1.png" alt="Mexique — photo 1" loading="lazy">
+              </a>
+            </div>
+            <div class="mexico-gallery-item">
+              <a href="../img/experiences/mexico/2.png" class="glightbox" aria-label="Open photo 2">
+                <img src="../img/experiences/mexico/2.png" alt="Mexique — photo 2" loading="lazy">
+              </a>
+            </div>
+            <div class="mexico-gallery-item">
+              <a href="../img/experiences/mexico/3.png" class="glightbox" aria-label="Open photo 3">
+                <img src="../img/experiences/mexico/3.png" alt="Mexique — photo 3" loading="lazy">
+              </a>
+            </div>
+            <div class="mexico-gallery-item">
+              <a href="../img/experiences/mexico/4.png" class="glightbox" aria-label="Open photo 4">
+                <img src="../img/experiences/mexico/4.png" alt="Mexique — photo 4" loading="lazy">
+              </a>
+            </div>
+            <div class="mexico-gallery-item">
+              <a href="../img/experiences/mexico/5.png" class="glightbox" aria-label="Open photo 5">
+                <img src="../img/experiences/mexico/5.png" alt="Mexique — photo 5" loading="lazy">
+              </a>
+            </div>
+            <div class="mexico-gallery-item">
+              <a href="../img/experiences/mexico/6.png" class="glightbox" aria-label="Open photo 6">
+                <img src="../img/experiences/mexico/6.png" alt="Mexique — photo 6" loading="lazy">
+              </a>
+            </div>
+            <div class="mexico-gallery-item">
+              <a href="../img/experiences/mexico/7.png" class="glightbox" aria-label="Open photo 7">
+                <img src="../img/experiences/mexico/7.png" alt="Mexique — photo 7" loading="lazy">
+              </a>
+            </div>
+            <div class="mexico-gallery-item">
+              <a href="../img/experiences/mexico/8.png" class="glightbox" aria-label="Open photo 8">
+                <img src="../img/experiences/mexico/8.png" alt="Mexique — photo 8" loading="lazy">
+              </a>
+            </div>
+            <div class="mexico-gallery-item">
+              <a href="../img/experiences/mexico/9.png" class="glightbox" aria-label="Open photo 9">
+                <img src="../img/experiences/mexico/9.png" alt="Mexique — photo 9" loading="lazy">
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -272,8 +384,16 @@
   </main>
 
   <script src="../../selected-templates/strategy/assets/vendor/aos/aos.js"></script>
+  <script src="../../selected-templates/traveltime-blue/assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="../js/site.js"></script>
+
+  <script>
+    (function(){
+      if (typeof GLightbox === 'undefined') return;
+      GLightbox({ selector: '#mexico-gallery .glightbox' });
+    })();
+  </script>
 
   <script>
     (function(){
