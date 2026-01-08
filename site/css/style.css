@@ -306,7 +306,7 @@ h1, h2, h3, .section-title {
 @media(max-width:480px){.rooms_here .single_rooms .room_thumb img{height:240px}} 
 
 /* Enhanced contact section styles */
-.contact-grid{display:flex;gap:28px;align-items:flex-start;max-width:var(--max-width);margin:0 auto}
+.contact-grid{display:flex;gap:28px;align-items:flex-start;width:100%}
 .contact-form-card{flex:1;background:#fff;padding:28px;border-radius:12px;box-shadow:0 10px 30px rgba(2,18,36,0.06)}
 .contact-form-card h2{margin-top:0;color:var(--prussian-blue)}
 .contact-form-card p{color:#4d4d4d}
@@ -326,6 +326,18 @@ h1, h2, h3, .section-title {
 .btn.whatsapp:hover{background:#fff;color:var(--safety-orange);border-color:var(--safety-orange)}
 
 @media(max-width:900px){.contact-grid{flex-direction:column}.contact-info-card{width:100%}}
+
+/* Contact page: let the section background span full width and tune padding for mobile */
+.contact-page-section{max-width:none;margin:0;padding-left:0;padding-right:0}
+.contact-page-container{max-width:var(--max-width);margin:0 auto;padding:40px 20px}
+
+@media(max-width:700px){
+  .contact-page-section{padding:24px 0;max-width:100%!important}
+  .contact-page-container{max-width:100%!important;width:100%;padding:0 12px;margin:0}
+  .contact-grid{width:100%;max-width:100%}
+  .contact-form-card{padding:18px;width:100%;max-width:100%}
+  .contact-form button{width:100%}
+}
 
 /* stacked contact subsections inside the aside */
 .contact-subsection{display:flex;gap:12px;align-items:flex-start;background:#fff;padding:14px;border-radius:10px;margin-bottom:12px;box-shadow:0 8px 20px rgba(2,18,36,0.04)}
