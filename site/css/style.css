@@ -315,7 +315,7 @@ h1, h2, h3, .section-title {
 .contact-note{font-size:0.9rem;color:#666}
 
 .btn.whatsapp{background:var(--bisque);color:var(--prussian-blue);border:2px solid rgba(0,0,0,0.06);padding:10px 14px;border-radius:8px;font-weight:700;text-decoration:none;display:inline-block}
-.btn.whatsapp:hover{background:var(--safety-orange);color:#fff;border-color:var(--safety-orange)}
+.btn.whatsapp:hover{background:#fff;color:var(--safety-orange);border-color:var(--safety-orange)}
 
 @media(max-width:900px){.contact-grid{flex-direction:column}.contact-info-card{width:100%}}
 
