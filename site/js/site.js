@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
 	}
 
 	if(typeof AOS !== 'undefined' && AOS && typeof AOS.init === 'function'){
-		AOS.init({ duration: 700, easing: 'ease-in-out', once: false, mirror: false });
+		AOS.init({ duration: 700, easing: 'ease-in-out', once: false, mirror: true });
 	}
 
 	// Consistent anchor scrolling with fixed-header offset
@@ -143,10 +143,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
 					mobileToggle.classList.add('bi-list');
 					mobileToggle.classList.remove('bi-x');
 				}
-			}
-
-			if(typeof AOS !== 'undefined' && AOS && typeof AOS.refresh === 'function'){
-				setTimeout(() => AOS.refresh(), 250);
 			}
 		});
 	});
