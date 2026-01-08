@@ -1032,6 +1032,11 @@ body.mobile-nav-active .navmenu a{color:var(--prussian-blue)}
   cursor: pointer;
 }
 
+/* Make the whole tile behave like one clickable link */
+.travel-destinations .isotope-container .destination-tile * {
+  pointer-events: none;
+}
+
 .travel-destinations .isotope-container .destination-tile:hover {
   transform: scale(1.02);
   box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
