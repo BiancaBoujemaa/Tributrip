@@ -355,9 +355,9 @@ body.scrolled .header-controls .lang-toggle .active{background:var(--safety-oran
 
 /* Default (over hero) state keeps light/white links */
 body:not(.scrolled) .navmenu a{color:var(--bisque)}
-.navmenu ul{display:flex;gap:18px;list-style:none;margin:0;padding:0;align-items:center}
+.navmenu ul{display:flex;gap:clamp(10px, 2vw, 18px);list-style:none;margin:0;padding:0;align-items:center}
 .navmenu li{position:relative}
-.navmenu a{color:var(--bisque);text-decoration:none;padding:8px 10px;font-weight:600}
+.navmenu a{color:var(--bisque);text-decoration:none;padding:8px clamp(6px, 1.1vw, 10px);font-weight:600;white-space:nowrap;font-size:clamp(0.86rem, 1.05vw, 1rem)}
 .navmenu a:hover{color:var(--safety-orange)}
 .mobile-nav-toggle{display:none;cursor:pointer}
 .btn-getstarted{background:var(--safety-orange);color:#fff;padding:8px 18px;border-radius:30px;text-decoration:none;font-weight:700}

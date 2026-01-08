@@ -8,30 +8,41 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&family=Quicksand:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header class="site-header">
-    <nav class="nav fixed">
-      <div class="brand"><a href="index.html"><img src="../old-site/logo.png" alt="Tributrip" class="logo" style="height:34px;display:block"></a></div>
-      <ul class="nav-links lang-fr">
-        <li><a href="index.html#hero">Accueil</a></li>
-        <li><a href="index.html#spirit">Esprit</a></li>
-        <li><a href="index.html#experiences">Expériences</a></li>
-        <li><a href="index.html#stories">Récits</a></li>
-        <li><a href="index.html#map">Carte</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-      <ul class="nav-links lang-en" style="display:none">
-        <li><a href="index.html#hero">Home</a></li>
-        <li><a href="index.html#spirit">Spirit</a></li>
-        <li><a href="index.html#experiences">Experiences</a></li>
-        <li><a href="index.html#stories">Local Stories</a></li>
-        <li><a href="index.html#map">Map</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-      <div class="lang-toggle">
-        <button id="lang-fr" class="active">FR</button>
-        <button id="lang-en">EN</button>
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="header-container position-relative d-flex align-items-center justify-content-between">
+      <a href="index.html#hero" class="logo d-flex align-items-center">
+        <img src="../old-site/logo.png" alt="Tributrip" style="height:36px;display:block">
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul class="lang-fr">
+          <li><a href="index.html#hero">Accueil</a></li>
+          <li><a href="index.html#spirit">Esprit</a></li>
+          <li><a href="index.html#about">Qui&nbsp;sommes‑nous</a></li>
+          <li><a href="index.html#experiences">Expériences</a></li>
+          <li><a href="index.html?filter=prochains-departs#experiences">Prochains&nbsp;départs</a></li>
+          <li><a href="index.html#featured">Récits</a></li>
+          <li><a href="index.html#contact">Contacts</a></li>
+        </ul>
+        <ul class="lang-en" style="display:none">
+          <li><a href="index.html#hero">Home</a></li>
+          <li><a href="index.html#spirit">Spirit</a></li>
+          <li><a href="index.html#about">About Us</a></li>
+          <li><a href="index.html#experiences">Experiences</a></li>
+          <li><a href="index.html?filter=prochains-departs#experiences">Upcoming&nbsp;departures</a></li>
+          <li><a href="index.html#featured">Stories</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+        <button type="button" class="mobile-nav-toggle d-xl-none bi bi-list" aria-label="Toggle navigation"></button>
+      </nav>
+
+      <div class="header-controls">
+        <div class="lang-toggle">
+          <button id="lang-fr" class="active">FR</button>
+          <button id="lang-en">EN</button>
+        </div>
       </div>
-    </nav>
+    </div>
   </header>
 
   <main>

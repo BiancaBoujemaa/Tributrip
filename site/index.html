@@ -23,8 +23,9 @@
         <ul class="lang-fr">
           <li><a href="#hero" class="active">Accueil</a></li>
           <li><a href="#spirit">Esprit</a></li>
-          <li><a href="#about">Qui sommes-nous</a></li>
+          <li><a href="#about">Qui&nbsp;sommes‑nous</a></li>
           <li><a href="#experiences">Expériences</a></li>
+          <li><a href="#experiences" class="js-experiences-filter" data-experiences-filter=".filter-prochains-departs">Prochains&nbsp;départs</a></li>
           <li><a href="#featured">Récits</a></li>
           <li><a href="#contact">Contacts</a></li>
         </ul>
@@ -33,6 +34,7 @@
           <li><a href="#spirit">Spirit</a></li>
           <li><a href="#about">About Us</a></li>
           <li><a href="#experiences">Experiences</a></li>
+          <li><a href="#experiences" class="js-experiences-filter" data-experiences-filter=".filter-prochains-departs">Upcoming&nbsp;departures</a></li>
           <li><a href="#featured">Stories</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
@@ -234,7 +236,7 @@ It's getting closer: to others, to a place, to a culture… and to yourself.</p>
         <div class="col-lg-6" data-aos="slide-left" data-aos-duration="800" data-aos-delay="200">
           <div class="spirit-image">
             <!-- <img src="../selected-templates/traveltime-blue/assets/img/travel/showcase-8.webp" alt="Esprit Tributrip" class="img-fluid rounded-4"> -->
-            <img src="img/about-portrait-1.webp" alt="Esprit Tributrip" class="img-fluid rounded-4">
+            <img src="img/espirit.png" alt="Esprit Tributrip" class="img-fluid rounded-4">
             <div class="experience-badge">
               <div class="experience-number" style="font-size:1.5rem">Slow</div>
               <div class="experience-text">Travel Pioneers</div>
@@ -318,11 +320,11 @@ It's getting closer: to others, to a place, to a culture… and to yourself.</p>
           <div class="col-lg-8 mx-auto text-center">
             <div class="lang-fr">
               <h2>Découvrez nos expériences</h2>
-              <p class="mb-5">Un catalogue d'expériences artisanales, gastronomiques, artistiques, insolites, bien-être et culturelles — à vivre au plus près des habitants.</p>
+              <p class="mb-5">Un catalogue d'expériences artisanales, gastronomiques, artistiques, bien-être et culturelles — à vivre au plus près des habitants.</p>
             </div>
             <div class="lang-en" style="display:none">
               <h2>Discover our experiences</h2>
-              <p class="mb-5">A curated catalogue of artisanal, food, artistic, unusual, wellness and cultural experiences — designed to connect you with locals.</p>
+              <p class="mb-5">A curated catalogue of artisanal, food, artistic, wellness and cultural experiences — designed to connect you with locals.</p>
             </div>
           </div>
         </div>
@@ -330,16 +332,54 @@ It's getting closer: to others, to a place, to a culture… and to yourself.</p>
         <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
           <ul class="destination-filters isotope-filters" data-aos="fade-up" data-aos-delay="200">
             <li data-filter="*" class="filter-active"><span class="lang-fr">Tous</span><span class="lang-en" style="display:none">All</span></li>
+            <li data-filter=".filter-prochains-departs"><span class="lang-fr">Prochains départs</span><span class="lang-en" style="display:none">Upcoming departures</span></li>
             <li data-filter=".filter-artisanat"><span class="lang-fr">Artisanat</span><span class="lang-en" style="display:none">Artisanal</span></li>
             <li data-filter=".filter-gastronomie"><span class="lang-fr">Gastronomie</span><span class="lang-en" style="display:none">Food</span></li>
             <li data-filter=".filter-artistique"><span class="lang-fr">Artistique</span><span class="lang-en" style="display:none">Art</span></li>
-            <li data-filter=".filter-insolite"><span class="lang-fr">Insolite</span><span class="lang-en" style="display:none">Unusual</span></li>
             <li data-filter=".filter-bien-etre"><span class="lang-fr">Bien-être</span><span class="lang-en" style="display:none">Wellness</span></li>
             <li data-filter=".filter-culture"><span class="lang-fr">Culture</span><span class="lang-en" style="display:none">Culture</span></li>
             <li data-filter=".filter-experience"><span class="lang-fr">Expérience</span><span class="lang-en" style="display:none">Experience</span></li>
           </ul><!-- End Destination Filters -->
 
           <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="300">
+
+            <div class="col-lg-4 col-md-6 destination-item isotope-item filter-prochains-departs">
+              <a href="destinations/mexico.html" class="destination-tile">
+                <div class="tile-image">
+                  <img src="img/experiences/mexico/1.png" alt="Voyage au Mexique" class="img-fluid" loading="lazy">
+                  <div class="overlay-content">
+                    <span class="destination-tag experience"><span class="lang-fr">PROCHAINS DÉPARTS</span><span class="lang-en" style="display:none">UPCOMING</span></span>
+                    <div class="destination-info">
+                      <h4><span class="lang-fr">Voyage au Mexique</span><span class="lang-en" style="display:none">Trip to Mexico</span></h4>
+                      <p><span class="lang-fr">Un voyage régénératif de 15 jours pour explorer l’âme du Mexique, ralentir et se reconnecter à soi, au rythme des traditions et de la nature sacrée.</span><span class="lang-en" style="display:none">A 15-day regenerative journey to explore Mexico’s soul, slow down, and reconnect with yourself through traditions, sacred nature and spiritual practices.</span></p>
+                      <div class="destination-stats">
+                        <span class="tours-available"><i class="bi bi-map"></i> <span class="lang-fr">15 jours</span><span class="lang-en" style="display:none">15 days</span></span>
+                        <span class="starting-price"><span class="lang-fr">Prix sur demande</span><span class="lang-en" style="display:none">Price on request</span></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div><!-- End Destination Item -->
+
+            <div class="col-lg-4 col-md-6 destination-item isotope-item filter-prochains-departs">
+              <a href="destinations/paris-trait-de-pinceau.html" class="destination-tile">
+                <div class="tile-image">
+                  <img src="img/experiences/france/voyage-france.png" alt="Voyage en France" class="img-fluid" loading="lazy">
+                  <div class="overlay-content">
+                    <span class="destination-tag experience"><span class="lang-fr">PROCHAINS DÉPARTS</span><span class="lang-en" style="display:none">UPCOMING</span></span>
+                    <div class="destination-info">
+                      <h4><span class="lang-fr">Voyage en France</span><span class="lang-en" style="display:none">Trip to France</span></h4>
+                      <p><span class="lang-fr">Un voyage en France qui commence par une arrivée à Paris, avant de vivre une expérience Tributrip au cœur de la ville.</span><span class="lang-en" style="display:none">A trip to France starting with arrival in Paris, then a Tributrip experience in the heart of the city.</span></p>
+                      <div class="destination-stats">
+                        <span class="tours-available"><i class="bi bi-map"></i> <span class="lang-fr">Paris</span><span class="lang-en" style="display:none">Paris</span></span>
+                        <span class="starting-price"><span class="lang-fr">Prix sur demande</span><span class="lang-en" style="display:none">Price on request</span></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div><!-- End Destination Item -->
 
             <div class="col-lg-4 col-md-6 destination-item isotope-item filter-artisanat">
               <a href="destinations/rencontre-gourmande.html" class="destination-tile">
@@ -436,12 +476,12 @@ It's getting closer: to others, to a place, to a culture… and to yourself.</p>
               </a>
             </div><!-- End Destination Item -->
 
-            <div class="col-lg-4 col-md-6 destination-item isotope-item filter-insolite">
+            <div class="col-lg-4 col-md-6 destination-item isotope-item filter-bien-etre">
               <a href="destinations/bus-amphibie.html" class="destination-tile">
                 <div class="tile-image">
                   <img src="img/experiences/bus.png" alt="Bus sur route, bus dans l’eau" class="img-fluid" loading="lazy">
                   <div class="overlay-content">
-                    <span class="destination-tag insolite"><span class="lang-fr">INSOLITE</span><span class="lang-en" style="display:none">UNUSUAL</span></span>
+                    <span class="destination-tag bien-etre"><span class="lang-fr">BIEN-ÊTRE</span><span class="lang-en" style="display:none">WELLNESS</span></span>
                     <div class="destination-info">
                       <h4><span class="lang-fr">Bus sur route, bus dans l’eau</span><span class="lang-en" style="display:none">Bus on the Road, Bus on the Water</span></h4>
                       <p><span class="lang-fr">Embarquez dans un bus amphibien pour une visite ludique de Paris entre terre et Seine, mêlant incontournables et croisière originale.</span><span class="lang-en" style="display:none">Board an amphibious bus for a playful tour of Paris between land and the Seine, mixing must-sees with an original cruise.</span></p>

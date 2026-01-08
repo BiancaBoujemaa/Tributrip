@@ -172,16 +172,45 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
 // Experiences / Destinations filtering (Traveltime-Blue behavior: Isotope + imagesLoaded)
 (function(){
+	/**
+	 * @param {HTMLElement} container
+	 * @param {string} filterValue
+	 */
 	function fallbackFilter(container, filterValue){
 		const items = Array.from(container.querySelectorAll('.destination-item'));
 		items.forEach(item => {
 			if(filterValue === '*' || !filterValue){
-				item.style.display = '';
+				/** @type {HTMLElement} */ (item).style.display = '';
 				return;
 			}
 			const className = filterValue.startsWith('.') ? filterValue.slice(1) : filterValue;
-			item.style.display = item.classList.contains(className) ? '' : 'none';
+			/** @type {HTMLElement} */ (item).style.display = item.classList.contains(className) ? '' : 'none';
 		});
+	}
+
+	/**
+	 * @param {HTMLElement} isotopeItem
+	 * @param {HTMLElement} container
+	 * @param {any} iso
+	 * @param {string} filterValue
+	 */
+	function applyExperiencesFilter(isotopeItem, container, iso, filterValue){
+		const active = isotopeItem.querySelector('.isotope-filters .filter-active');
+		if(active) active.classList.remove('filter-active');
+		const filterLi = isotopeItem.querySelector(`.isotope-filters li[data-filter="${filterValue}"]`);
+		if(filterLi) filterLi.classList.add('filter-active');
+
+		if(iso){
+			iso.arrange({ filter: filterValue });
+		} else {
+			fallbackFilter(container, filterValue);
+			// Persist desired filter until Isotope finishes initialising (imagesLoaded async)
+			isotopeItem.dataset.pendingFilter = filterValue;
+		}
+
+		if(typeof AOS !== 'undefined' && AOS && typeof AOS.refresh === 'function'){
+			AOS.refresh();
+		}
 	}
 
 	document.addEventListener('DOMContentLoaded', ()=>{
@@ -190,13 +219,16 @@ document.addEventListener('DOMContentLoaded', ()=>{
 		if(!experiences) return;
 
 		experiences.querySelectorAll('.isotope-layout').forEach(isotopeItem => {
-			const layout = isotopeItem.getAttribute('data-layout') || 'masonry';
-			const filter = isotopeItem.getAttribute('data-default-filter') || '*';
-			const sort = isotopeItem.getAttribute('data-sort') || 'original-order';
-			const container = isotopeItem.querySelector('.isotope-container');
+			const isotopeItemEl = /** @type {HTMLElement} */ (isotopeItem);
+			const layout = isotopeItemEl.getAttribute('data-layout') || 'masonry';
+			const filter = isotopeItemEl.getAttribute('data-default-filter') || '*';
+			const sort = isotopeItemEl.getAttribute('data-sort') || 'original-order';
+			const container = /** @type {HTMLElement|null} */ (isotopeItemEl.querySelector('.isotope-container'));
 			if(!container) return;
 
+			/** @type {any} */
 			let iso = null;
+			isotopeItemEl.dataset.pendingFilter = '';
 			const hasVendors = (typeof Isotope === 'function') && (typeof imagesLoaded === 'function');
 
 			if(hasVendors){
@@ -204,32 +236,60 @@ document.addEventListener('DOMContentLoaded', ()=>{
 					iso = new Isotope(container, {
 						itemSelector: '.isotope-item',
 						layoutMode: layout,
-						filter: filter,
+							filter: isotopeItemEl.dataset.pendingFilter || filter,
 						sortBy: sort
 					});
+					// If a filter was requested before init completed, re-apply it now.
+					if(isotopeItemEl.dataset.pendingFilter){
+						applyExperiencesFilter(isotopeItemEl, container, iso, isotopeItemEl.dataset.pendingFilter);
+					}
 				});
 			} else {
 				// Ensure correct default without vendors
 				fallbackFilter(container, filter);
 			}
 
-			isotopeItem.querySelectorAll('.isotope-filters li').forEach(li => {
+			isotopeItemEl.querySelectorAll('.isotope-filters li').forEach(li => {
 				li.addEventListener('click', () => {
-					const active = isotopeItem.querySelector('.isotope-filters .filter-active');
-					if(active) active.classList.remove('filter-active');
-					li.classList.add('filter-active');
-
 					const filterValue = li.getAttribute('data-filter') || '*';
-					if(iso){
-						iso.arrange({ filter: filterValue });
-					} else {
-						fallbackFilter(container, filterValue);
-					}
-
-					if(typeof AOS !== 'undefined' && AOS && typeof AOS.refresh === 'function'){
-						AOS.refresh();
-					}
+					applyExperiencesFilter(isotopeItemEl, container, iso, filterValue);
 				});
+			});
+
+			// Apply a requested filter on page load (e.g. via nav click / query string)
+			const urlParams = new URLSearchParams(window.location.search);
+			const requested = urlParams.get('filter');
+			if(requested === 'prochains-departs'){
+				applyExperiencesFilter(isotopeItemEl, container, iso, '.filter-prochains-departs');
+			}
+		});
+
+		// Nav/link helpers to jump to Experiences with a specific filter
+		document.querySelectorAll('[data-experiences-filter]').forEach(link => {
+			const anchor = /** @type {HTMLAnchorElement} */ (link);
+			anchor.addEventListener('click', (e) => {
+				const filterValue = anchor.getAttribute('data-experiences-filter');
+				if(!filterValue) return;
+				const target = /** @type {HTMLElement|null} */ (document.querySelector(anchor.getAttribute('href') || '#experiences'));
+				if(!target) return;
+
+				e.preventDefault();
+				// Close mobile nav if open
+				document.body.classList.remove('mobile-nav-active');
+				// Update URL hash and scroll
+				window.location.hash = target.id ? `#${target.id}` : '#experiences';
+				target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+				// Apply filter shortly after scroll starts
+				setTimeout(() => {
+					const isotopeItem = /** @type {HTMLElement|null} */ (experiences.querySelector('.isotope-layout'));
+					if(!isotopeItem) return;
+					const container = /** @type {HTMLElement|null} */ (isotopeItem.querySelector('.isotope-container'));
+					if(!container) return;
+					// Best-effort: trigger the existing filter click handler
+					const li = /** @type {HTMLElement|null} */ (isotopeItem.querySelector(`.isotope-filters li[data-filter="${filterValue}"]`));
+					if(li) li.click();
+				}, 120);
 			});
 		});
 	});
