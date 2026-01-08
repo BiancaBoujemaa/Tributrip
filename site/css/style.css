@@ -7,6 +7,91 @@
 .travel-destinations .destination-tag.bien-etre { background-color: #e74c3c; }
 .travel-destinations .destination-tag.culture { background-color: #e67e22; }
 .travel-destinations .destination-tag.experience { background-color: var(--prussian-blue); }
+
+/* Destination detail pages (e.g., destinations/mexico.html) */
+.destination-page .destination-hero {
+  padding: 140px 0 70px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.destination-page .destination-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.65) 100%);
+}
+
+.destination-page .destination-hero .container {
+  position: relative;
+  color: white;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.destination-page .destination-hero h1 {
+  margin: 0 0 10px;
+  color: white;
+}
+
+.destination-page .destination-hero .lead {
+  margin: 0 0 18px;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.destination-page .breadcrumbs ol {
+  list-style: none;
+  display: flex;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+  justify-content: center;
+}
+
+.destination-page .breadcrumbs a {
+  color: rgba(255, 255, 255, 0.92);
+  text-decoration: none;
+}
+
+.destination-page .breadcrumbs .current {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.destination-page .destination-content .itinerary {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.destination-page .destination-content .itinerary-item {
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+  border-radius: 14px;
+  background: rgba(0, 41, 77, 0.04);
+}
+
+.destination-page .destination-content .itinerary-item .day {
+  flex: 0 0 auto;
+  min-width: 78px;
+  font-weight: 700;
+  color: var(--prussian-blue);
+}
+
+.destination-page .destination-content .itinerary-item .content h3 {
+  margin: 0 0 6px;
+}
+
+.destination-page .destination-content .itinerary-item .content p {
+  margin: 0 0 8px;
+}
+
+.destination-page .destination-content .itinerary-item .content p:last-child {
+  margin-bottom: 0;
+}
 :root{
   --safety-orange:#FF7D17;
   --prussian-blue:#00294D;
@@ -14,15 +99,56 @@
   --deep-saffron:#FC9E38;
   --gingerbread:#4E1D00;
   --max-width:1100px;
+  --scroll-offset: 132px;
 }
 *{box-sizing:border-box}
+
+hr{
+  margin: 0.5rem 0;
+  border: none;
+  border-top: 1px solid rgba(0, 41, 77, 0.08);
+}
+
+/* Avoid stacked dividers when an <hr> sits between sections */
+hr + .section{
+  border-top: none;
+  padding-top: 28px;
+}
+
+/* Tighten spacing after dividers for non-.section blocks too */
+hr + section{
+  padding-top: 28px;
+}
+
+/* Override class-based section padding shorthands (e.g. .about-section { padding: ... }) */
+hr + section[class]{
+  padding-top: 28px;
+}
 /* Typography and brand fonts */
 body{font-family:'Quicksand', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;margin:0;color:var(--gingerbread);background:var(--bisque);line-height:1.65;-webkit-font-smoothing:antialiased}
 h1,h2,h3,.brand{font-family:'Outfit', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;color:var(--prussian-blue);letter-spacing:0.02em}
 
 /* Scroll margin to account for fixed header */
+html {
+  scroll-behavior: smooth;
+}
+
 section {
-  scroll-margin-top: 100px;
+  scroll-margin-top: var(--scroll-offset, 132px);
+}
+
+/* Reliable fixed-header offset for native hash navigation */
+section[id]:target::before {
+  content: "";
+  display: block;
+  height: var(--scroll-offset, 132px);
+  margin-top: calc(var(--scroll-offset, 132px) * -1);
+  visibility: hidden;
+  pointer-events: none;
+}
+
+h1, h2, h3, .section-title {
+  scroll-margin-top: var(--scroll-offset, 132px);
 }
 
 .nav.fixed{position:fixed;top:12px;left:12px;right:12px;display:flex;align-items:center;justify-content:space-between;padding:12px 20px;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,0.06);z-index:1000;backdrop-filter: blur(4px);background:transparent}
@@ -69,7 +195,7 @@ section {
 .hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,0.28), rgba(0,0,0,0.14));z-index:2}
 .btn{display:inline-block;background:var(--safety-orange);color:#fff;padding:12px 18px;border-radius:8px;text-decoration:none;font-weight:700;box-shadow:0 8px 18px rgba(255,125,23,0.14)}
 .btn.whatsapp{background:transparent;color:var(--prussian-blue);border:2px solid rgba(0,0,0,0.06);box-shadow:none}
-.section{padding:80px 20px;max-width:var(--max-width);margin:0 auto;border-top:1px solid rgba(0,41,77,0.08)}
+.section{padding:56px 20px;max-width:var(--max-width);margin:0 auto;border-top:1px solid rgba(0,41,77,0.08)}
 .hero + .section{border-top:none}
 .section h2{color:var(--prussian-blue);margin-top:0;font-size:1.8rem}
 .experiences .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px}
