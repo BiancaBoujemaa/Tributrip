@@ -746,3 +746,277 @@ body.mobile-nav-active .navmenu a{color:var(--prussian-blue)}
     font-size: 1.3rem;
   }
 }
+
+/* Travel Destinations / Experiences Section */
+.travel-destinations {
+  padding: 80px 20px;
+}
+
+/* The Traveltime-Blue section relies on Bootstrap grid classes (row/col-*)
+  but this site doesn't load Bootstrap. Implement a minimal, scoped grid
+  only inside .travel-destinations to prevent Isotope overlap issues. */
+.travel-destinations .row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -12px;
+  margin-right: -12px;
+}
+
+.travel-destinations .row > * {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.travel-destinations .text-center {
+  text-align: center;
+}
+
+.travel-destinations .mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.travel-destinations .gy-4 {
+  row-gap: 24px;
+}
+
+/* Default: 1 column */
+.travel-destinations .col-lg-4,
+.travel-destinations .col-md-6,
+.travel-destinations .col-lg-8 {
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+
+/* md: 2 columns for cards */
+@media (min-width: 768px) {
+  .travel-destinations .col-md-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+/* lg: 3 columns for cards, and 8-col centered header */
+@media (min-width: 992px) {
+  .travel-destinations .col-lg-4 {
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+  }
+
+  .travel-destinations .col-lg-8 {
+    flex: 0 0 66.666667%;
+    max-width: 66.666667%;
+  }
+}
+
+.travel-destinations .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.travel-destinations h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  color: var(--prussian-blue);
+}
+
+.travel-destinations > .container > .row {
+  margin-bottom: 3rem;
+}
+
+.travel-destinations .isotope-layout {
+  width: 100%;
+}
+
+.travel-destinations .destination-filters {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 40px 0;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.travel-destinations .destination-filters li {
+  background: transparent;
+  border: 2px solid rgba(0, 41, 77, 0.15);
+  color: var(--prussian-blue);
+  padding: 10px 24px;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.travel-destinations .destination-filters li:hover,
+.travel-destinations .destination-filters li.filter-active {
+  background-color: var(--safety-orange);
+  border-color: var(--safety-orange);
+  color: white;
+}
+
+.travel-destinations .isotope-container .destination-item {
+  /* Leave sizing to Bootstrap's .row/.col-* like the Traveltime-Blue template */
+  margin-bottom: 30px;
+}
+
+.travel-destinations .isotope-container {
+  /* Do not override Bootstrap .row layout; Isotope expects a positioned container. */
+  position: relative;
+}
+
+.travel-destinations .isotope-container .destination-tile {
+  display: block;
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s ease;
+  cursor: pointer;
+}
+
+.travel-destinations .isotope-container .destination-tile:hover {
+  transform: scale(1.02);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+}
+
+.travel-destinations .isotope-container .destination-tile .tile-image {
+  position: relative;
+  height: 320px;
+  overflow: hidden;
+}
+
+.travel-destinations .isotope-container .destination-tile .tile-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.travel-destinations .isotope-container .destination-tile .tile-image:hover img {
+  transform: scale(1.1);
+}
+
+.travel-destinations .isotope-container .destination-tile .tile-image .overlay-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.8) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.travel-destinations .isotope-container .destination-tile .tile-image .overlay-content .destination-tag {
+  align-self: flex-end;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.travel-destinations .isotope-container .destination-tile .tile-image .overlay-content .destination-tag.luxury {
+  background-color: #d4af37;
+  color: white;
+}
+
+.travel-destinations .isotope-container .destination-tile .tile-image .overlay-content .destination-tag.cultural {
+  background-color: #8b5cf6;
+  color: white;
+}
+
+.travel-destinations .isotope-container .destination-tile .tile-image .overlay-content .destination-tag.adventure {
+  background-color: #f59e0b;
+  color: white;
+}
+
+.travel-destinations .isotope-container .destination-tile .tile-image .overlay-content .destination-tag.nature {
+  background-color: #10b981;
+  color: white;
+}
+
+.travel-destinations .isotope-container .destination-tile .tile-image .overlay-content .destination-tag.modern {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.travel-destinations .isotope-container .destination-tile .tile-image .overlay-content .destination-tag.romantic {
+  background-color: #ec4899;
+  color: white;
+}
+
+.travel-destinations .isotope-container .destination-tile .tile-image .overlay-content .destination-tag.popular {
+  background-color: #ef4444;
+  color: white;
+}
+
+.travel-destinations .isotope-container .destination-tile .tile-image .overlay-content .destination-tag.trekking {
+  background-color: #92400e;
+  color: white;
+}
+
+.travel-destinations .isotope-container .destination-tile .tile-image .overlay-content .destination-tag.ancient {
+  background-color: #7c2d12;
+  color: white;
+}
+
+.travel-destinations .isotope-container .destination-tile .tile-image .overlay-content .destination-tag.family {
+  background-color: #06b6d4;
+  color: white;
+}
+
+.travel-destinations .isotope-container .destination-tile .tile-image .overlay-content .destination-info {
+  color: white;
+}
+
+.travel-destinations .isotope-container .destination-tile .tile-image .overlay-content .destination-info h4 {
+  color: white;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.travel-destinations .isotope-container .destination-tile .tile-image .overlay-content .destination-info p {
+  font-size: 15px;
+  line-height: 1.5;
+  margin-bottom: 16px;
+  opacity: 0.9;
+}
+
+.travel-destinations .isotope-container .destination-tile .tile-image .overlay-content .destination-info .destination-stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.travel-destinations .isotope-container .destination-tile .tile-image .overlay-content .destination-info .destination-stats .tours-available {
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+.travel-destinations .isotope-container .destination-tile .tile-image .overlay-content .destination-info .destination-stats .tours-available i {
+  margin-right: 4px;
+}
+
+.travel-destinations .isotope-container .destination-tile .tile-image .overlay-content .destination-info .destination-stats .starting-price {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--safety-orange);
+}
+
+@media (max-width: 768px) {
+  .travel-destinations .isotope-container .destination-tile .tile-image {
+    height: 250px;
+  }
+}

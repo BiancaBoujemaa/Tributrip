@@ -78,6 +78,71 @@ document.addEventListener('DOMContentLoaded', ()=>{
 	}
 });
 
+// Experiences / Destinations filtering (Traveltime-Blue behavior: Isotope + imagesLoaded)
+(function(){
+	function fallbackFilter(container, filterValue){
+		const items = Array.from(container.querySelectorAll('.destination-item'));
+		items.forEach(item => {
+			if(filterValue === '*' || !filterValue){
+				item.style.display = '';
+				return;
+			}
+			const className = filterValue.startsWith('.') ? filterValue.slice(1) : filterValue;
+			item.style.display = item.classList.contains(className) ? '' : 'none';
+		});
+	}
+
+	document.addEventListener('DOMContentLoaded', ()=>{
+		// Scope to Experiences section only
+		const experiences = document.querySelector('#experiences');
+		if(!experiences) return;
+
+		experiences.querySelectorAll('.isotope-layout').forEach(isotopeItem => {
+			const layout = isotopeItem.getAttribute('data-layout') || 'masonry';
+			const filter = isotopeItem.getAttribute('data-default-filter') || '*';
+			const sort = isotopeItem.getAttribute('data-sort') || 'original-order';
+			const container = isotopeItem.querySelector('.isotope-container');
+			if(!container) return;
+
+			let iso = null;
+			const hasVendors = (typeof Isotope === 'function') && (typeof imagesLoaded === 'function');
+
+			if(hasVendors){
+				imagesLoaded(container, () => {
+					iso = new Isotope(container, {
+						itemSelector: '.isotope-item',
+						layoutMode: layout,
+						filter: filter,
+						sortBy: sort
+					});
+				});
+			} else {
+				// Ensure correct default without vendors
+				fallbackFilter(container, filter);
+			}
+
+			isotopeItem.querySelectorAll('.isotope-filters li').forEach(li => {
+				li.addEventListener('click', () => {
+					const active = isotopeItem.querySelector('.isotope-filters .filter-active');
+					if(active) active.classList.remove('filter-active');
+					li.classList.add('filter-active');
+
+					const filterValue = li.getAttribute('data-filter') || '*';
+					if(iso){
+						iso.arrange({ filter: filterValue });
+					} else {
+						fallbackFilter(container, filterValue);
+					}
+
+					if(typeof AOS !== 'undefined' && AOS && typeof AOS.refresh === 'function'){
+						AOS.refresh();
+					}
+				});
+			});
+		});
+	});
+})();
+
 // Simple lightbox for gallery items
 (function(){
 	function createOverlay(){
