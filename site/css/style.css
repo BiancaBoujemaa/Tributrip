@@ -184,6 +184,14 @@ h1, h2, h3, .section-title {
 .hero{height:100vh;position:relative;color:var(--bisque);overflow:hidden}
 /* hero-inner becomes an absolute overlay centered over the video */
 .hero .hero-inner{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;max-width:980px;padding:28px 20px;margin:0 auto;z-index:4;color:#fff}
+
+/* On some small devices, the fixed header can overlap the hero badge.
+   Reserve vertical space for the header using the measured scroll offset. */
+@media (max-width: 700px), (max-height: 720px) {
+  .hero .hero-inner{
+    padding-top: calc(var(--scroll-offset, 132px) + 16px);
+  }
+}
 .hero h1{font-size:3.6rem;margin:0 0 12px;color:#fff;font-weight:700}
 .hero .tag{font-size:1.2rem;color:rgba(255,255,255,0.9);margin-bottom:18px}
 
