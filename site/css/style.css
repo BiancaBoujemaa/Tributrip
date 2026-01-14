@@ -1018,14 +1018,24 @@ body.mobile-nav-active .navmenu a{color:var(--prussian-blue)}
 }
 
 @media (max-width: 768px) {
+  .about-section {
+    padding: 48px 16px;
+  }
+
+  .about-section .row {
+    gap: 1rem;
+  }
+
   .about-image {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
+    aspect-ratio: auto;
   }
 
   /* On small screens, keep the same frame size but show the whole image (no crop). */
   .about-image img {
     object-fit: contain;
     object-position: center;
+    height: auto;
   }
 
   .about-title {
@@ -1168,6 +1178,25 @@ body.mobile-nav-active .navmenu a{color:var(--prussian-blue)}
 .travel-destinations .isotope-container {
   /* Do not override Bootstrap .row layout; Isotope expects a positioned container. */
   position: relative;
+  /* Isotope will absolutely-position children; avoid relying on flex sizing here. */
+  display: block;
+}
+
+/* Isotope sets items to position:absolute; ensure responsive widths still apply. */
+.travel-destinations .isotope-container .destination-item{
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .travel-destinations .isotope-container .destination-item{
+    width: 50%;
+  }
+}
+
+@media (min-width: 992px) {
+  .travel-destinations .isotope-container .destination-item{
+    width: 33.333333%;
+  }
 }
 
 .travel-destinations .isotope-container .destination-tile {
