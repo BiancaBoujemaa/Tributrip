@@ -1254,6 +1254,10 @@ body.mobile-nav-active .navmenu a{color:var(--prussian-blue)}
   cursor: pointer;
 }
 
+.travel-destinations .isotope-container .destination-tile.destination-tile--static {
+  cursor: default;
+}
+
 /* Make the whole tile behave like one clickable link */
 .travel-destinations .isotope-container .destination-tile * {
   pointer-events: none;
@@ -1262,6 +1266,11 @@ body.mobile-nav-active .navmenu a{color:var(--prussian-blue)}
 .travel-destinations .isotope-container .destination-tile:hover {
   transform: scale(1.02);
   box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+}
+
+.travel-destinations .isotope-container .destination-tile.destination-tile--static:hover {
+  transform: none;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
 }
 
 .travel-destinations .isotope-container .destination-tile .tile-image {
