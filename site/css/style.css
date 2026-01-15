@@ -187,11 +187,7 @@ h1, h2, h3, .section-title {
 
 /* On some small devices, the fixed header can overlap the hero badge.
    Reserve vertical space for the header using the measured scroll offset. */
-@media (max-width: 700px), (max-height: 720px) {
-  .hero .hero-inner{
-    padding-top: calc(var(--scroll-offset, 132px) + 16px);
-  }
-}
+
 .hero h1{font-size:3.6rem;margin:0 0 12px;color:#fff;font-weight:700}
 .hero .tag{font-size:1.2rem;color:rgba(255,255,255,0.9);margin-bottom:18px}
 
@@ -219,11 +215,45 @@ h1, h2, h3, .section-title {
   .hero-features{flex-wrap:wrap;justify-content:center;gap:12px 18px;margin-bottom:26px}
 }
 
+/* iPhone 12 Pro (390px) & Galaxy S8+ (360px): avoid awkward wrapping/overlap */
+@media (max-width: 420px) {
+  .hero{
+    height: 100vh;
+    height: 100svh;
+  }
+
+  .hero-features{
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    /* Leave room for the scroll indicator at the bottom */
+    margin-bottom: 96px;
+  }
+
+  .hero-features li{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .scroll-indicator{bottom: 16px;}
+}
+
 /* scroll indicator */
 .scroll-indicator{position:absolute;left:50%;transform:translateX(-50%);bottom:28px}
 .scroll-indicator .mouse{width:34px;height:52px;border:2px solid rgba(255,255,255,0.6);border-radius:18px;display:flex;align-items:flex-start;justify-content:center;padding-top:8px}
 .scroll-indicator .mouse span{width:6px;height:6px;background:rgba(255,255,255,0.9);border-radius:50%;display:block;animation:scroll-pulse 1.6s infinite}
 @keyframes scroll-pulse{0%{transform:translateY(0);opacity:1}50%{transform:translateY(8px);opacity:.5}100%{transform:translateY(0);opacity:1}}
+
+/* Short landscape screens: keep headline below the fixed header */
+@media (max-height: 520px) and (orientation: landscape) {
+  .hero .hero-inner{
+    justify-content: flex-start;
+    padding-top: calc(var(--scroll-offset, 132px) - 12px);
+  }
+
+  .scroll-indicator{bottom: 12px;}
+}
 
 @media(max-width:900px){.hero h1{font-size:2.6rem}.hero .lead{font-size:1rem;padding:0 8px}.hero-badge{font-size:0.85rem;padding:6px 14px}.btn.primary{padding:10px 18px}.scroll-indicator{bottom:18px}}
 .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;filter:contrast(0.95) saturate(0.95)}
@@ -258,7 +288,7 @@ h1, h2, h3, .section-title {
 .contact-form input,.contact-form textarea{width:100%;padding:8px;border:1px solid #ccc;border-radius:4px}
 .site-footer{text-align:center;padding:36px 10px;background:transparent;color:var(--prussian-blue);font-size:0.95rem}
 @media(max-width:900px){.nav.fixed{left:10px;right:10px}.nav .nav-links{gap:12px}}
-@media(max-width:700px){.nav .nav-links{display:none}.stories-list{grid-template-columns:1fr}.hero h1{font-size:2.2rem}.hero{height:70vh}}
+@media(max-width:700px){.nav .nav-links{display:none}.stories-list{grid-template-columns:1fr}.hero h1{font-size:2.2rem}.hero{height:100vh;height:100svh}}
 /* Language blocks: visibility is controlled by JavaScript (setLanguage)
   Avoid hard-coded display rules here so JS can show/hide blocks.
 */
