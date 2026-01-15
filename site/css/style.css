@@ -239,6 +239,14 @@ h1, h2, h3, .section-title {
   .scroll-indicator{bottom: 16px;}
 }
 
+/* iPhone SE / small-height portrait: keep hero content below fixed header */
+@media (max-width: 420px) and (max-height: 700px) and (orientation: portrait) {
+  .hero .hero-inner{
+    justify-content: flex-start;
+    padding-top: calc(var(--scroll-offset, 132px) - 18px);
+  }
+}
+
 /* scroll indicator */
 .scroll-indicator{position:absolute;left:50%;transform:translateX(-50%);bottom:28px}
 .scroll-indicator .mouse{width:34px;height:52px;border:2px solid rgba(255,255,255,0.6);border-radius:18px;display:flex;align-items:flex-start;justify-content:center;padding-top:8px}
