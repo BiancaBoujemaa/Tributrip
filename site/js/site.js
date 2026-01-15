@@ -1,6 +1,118 @@
 // Placeholder JS for future interactive bits (map, language switching improvements)
 console.log('Tributrip site scaffold loaded');
 
+function getUiLanguage(){
+	const lang = (document.documentElement.lang || 'fr').toLowerCase();
+	return lang.startsWith('en') ? 'en' : 'fr';
+}
+
+function getFormspreeMessages(){
+	const lang = getUiLanguage();
+	if(lang === 'en'){
+		return {
+			sending: 'Sending…',
+			success: 'Thanks! Your message has been sent.',
+			error: 'Sorry—something went wrong. Please try again, or contact us by email.',
+		};
+	}
+	return {
+		sending: 'Envoi…',
+		success: 'Merci ! Votre message a bien été envoyé.',
+		error: 'Désolé — une erreur est survenue. Réessayez, ou contactez-nous par email.',
+	};
+}
+
+function getOrCreateFormStatus(form){
+	let status = form.querySelector('.form-status');
+	if(status) return status;
+	status = document.createElement('div');
+	status.className = 'form-status';
+	status.setAttribute('role', 'status');
+	status.setAttribute('aria-live', 'polite');
+	form.appendChild(status);
+	return status;
+}
+
+function setFormStatus(statusEl, type, message){
+	if(!statusEl) return;
+	if(!type || !message){
+		statusEl.removeAttribute('data-status');
+		statusEl.textContent = '';
+		return;
+	}
+	statusEl.setAttribute('data-status', type);
+	statusEl.textContent = message;
+}
+
+function initFormspreeClientSubmit(){
+	/** @type {NodeListOf<HTMLFormElement>} */
+	// @ts-ignore
+	const forms = document.querySelectorAll('form[action^="https://formspree.io/"]');
+	if(!forms || forms.length === 0) return;
+
+	forms.forEach(form => {
+		if(form.dataset.formspreeBound === '1') return;
+		form.dataset.formspreeBound = '1';
+
+		form.addEventListener('submit', async (e) => {
+			e.preventDefault();
+			const action = form.getAttribute('action') || '';
+			if(!action) return;
+
+			const msg = getFormspreeMessages();
+			const statusEl = getOrCreateFormStatus(form);
+			setFormStatus(statusEl, 'info', msg.sending);
+
+			const submitBtn = /** @type {HTMLButtonElement|HTMLInputElement|null} */ (form.querySelector('button[type="submit"], input[type="submit"]'));
+			const prevDisabled = submitBtn ? submitBtn.disabled : false;
+			const prevText = !submitBtn ? '' : (submitBtn.tagName.toLowerCase() === 'input' ? submitBtn.value : (submitBtn.textContent || ''));
+			try{
+				if(submitBtn){
+					submitBtn.disabled = true;
+					form.setAttribute('aria-busy', 'true');
+					// Button could be <button> or <input>
+					if(submitBtn.tagName.toLowerCase() === 'input') submitBtn.value = msg.sending;
+					else submitBtn.textContent = msg.sending;
+				}
+
+				const formData = new FormData(form);
+				const body = new URLSearchParams();
+				for(const [key, value] of formData.entries()){
+					if(typeof value === 'string') body.append(key, value);
+					else body.append(key, value.name);
+				}
+
+				const res = await fetch(action, {
+					method: 'POST',
+					headers: {
+						'Accept': 'application/json',
+						'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+					},
+					body,
+				});
+
+				if(res.ok){
+					form.reset();
+					setFormStatus(statusEl, 'success', msg.success);
+					return;
+				}
+
+				// Try to extract Formspree error, but keep messaging simple.
+				setFormStatus(statusEl, 'error', msg.error);
+			} catch(err){
+				setFormStatus(statusEl, 'error', getFormspreeMessages().error);
+			} finally {
+				if(submitBtn){
+					submitBtn.disabled = prevDisabled;
+					form.removeAttribute('aria-busy');
+					if(submitBtn.tagName.toLowerCase() === 'input') submitBtn.value = prevText || 'Submit';
+					else submitBtn.textContent = prevText;
+				}
+			}
+		});
+	});
+}
+
 // Set an initial offset as soon as the script loads (scripts are at end of body).
 try{ updateScrollPadding(); }catch(e){}
 
@@ -168,6 +280,9 @@ document.addEventListener('DOMContentLoaded', ()=>{
 			mobileToggle.classList.toggle('bi-x');
 		});
 	}
+
+	// Contact forms (Formspree): submit in-place, no redirect.
+	initFormspreeClientSubmit();
 });
 
 // Experiences / Destinations filtering (Traveltime-Blue behavior: Isotope + imagesLoaded)

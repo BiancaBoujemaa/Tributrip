@@ -23,6 +23,10 @@ Next recommended steps:
 - Implement bilingual content (FR/EN) using a small JSON with translations or duplicate sections
 - Replace contact form action with working backend or use a service (Formspree) or the `contact_process.php` script from `montana` if you want PHP handling
 
+Formspree setup (no PHP/server required):
+- Create a free form on Formspree and copy your endpoint URL (looks like `https://formspree.io/f/xxxxxxx`).
+- Current endpoint configured in this repo: `https://formspree.io/f/xovpqaln`
+
 If you want, I can now:
 - Populate the site with your real copy (you can paste text here)
 - Install the chosen fonts and update the header

@@ -360,6 +360,13 @@ h1, h2, h3, .section-title {
 .contact-form input,.contact-form textarea{border:1px solid rgba(0,0,0,0.08);padding:12px;border-radius:8px}
 .contact-form button{margin-top:8px}
 
+/* Contact form submission status (Formspree client-side submit) */
+.contact-form .form-status{margin-top:12px;padding:10px 12px;border-radius:10px;font-weight:600;font-size:0.95rem;display:none}
+.contact-form .form-status[data-status]{display:block}
+.contact-form .form-status[data-status="info"]{background:rgba(0,41,77,0.03);border:1px solid rgba(0,41,77,0.08);color:var(--prussian-blue)}
+.contact-form .form-status[data-status="success"]{background:rgba(0,41,77,0.04);border:1px solid rgba(0,41,77,0.10);color:var(--prussian-blue)}
+.contact-form .form-status[data-status="error"]{background:rgba(255,125,23,0.06);border:1px solid rgba(255,125,23,0.18);color:var(--gingerbread)}
+
 .contact-info-card{width:320px}
 .contact-info-inner{background:linear-gradient(180deg, rgba(0,41,77,0.02), rgba(0,41,77,0.04));padding:20px;border-radius:12px;height:100%;display:flex;flex-direction:column;gap:12px}
 .contact-head{font-weight:700;color:var(--prussian-blue);margin:0}
